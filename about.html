@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Trivia Clothing</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .about-hero {
+            height: 400px;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=1920&h=600&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+        .about-hero h1 {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 400;
+        }
+        .about-content {
+            padding: 80px 0;
+        }
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        .about-section.reverse {
+            direction: rtl;
+        }
+        .about-section.reverse > * {
+            direction: ltr;
+        }
+        .about-text h2 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+        .about-text p {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .about-image img {
+            width: 100%;
+            height: 450px;
+            object-fit: cover;
+        }
+        .values-section {
+            background: #f8f8f8;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .values-section h2 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            margin-bottom: 50px;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .value-card {
+            padding: 30px;
+            background: #fff;
+        }
+        .value-card i {
+            font-size: 40px;
+            color: #c9a227;
+            margin-bottom: 20px;
+        }
+        .value-card h3 {
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+        .value-card p {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+        @media (max-width: 992px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 576px) {
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <button class="announcement-nav prev"><i class="fas fa-chevron-left"></i></button>
+        <div class="announcement-slider">
+            <div class="announcement-slide active">End Of Season Sale - UPTO 40% Off</div>
+        </div>
+        <button class="announcement-nav next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <!-- Brand Title -->
+        <div class="brand-title">
+            <a href="index.html" class="logo-text">trivia</a>
+        </div>
+        <!-- Navigation Row -->
+        <div class="nav-row">
+            <div class="search-icon">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="collection.html?category=new">AW'25</a></li>
+                    <li class="nav-item"><a href="collection.html">Clothing <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="collection.html">Collection <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="collection.html?category=accessories">Accessories <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="giftcard.html">Gift Card</a></li>
+                    <li class="nav-item"><a href="collection.html?sale=true">Sale</a></li>
+                    <li class="nav-item"><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="wishlist.html" class="icon-link" aria-label="Wishlist">
+                    <i class="far fa-heart"></i><span class="badge">0</span>
+                </a>
+                <a href="account.html" class="icon-link"><i class="far fa-user"></i></a>
+                <a href="cart.html" class="icon-link" aria-label="Cart">
+                    <i class="fas fa-shopping-bag"></i><span class="badge">0</span>
+                </a>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle"><span></span><span></span><span></span></button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search for products..." id="searchInput">
+            <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- About Hero -->
+    <section class="about-hero">
+        <h1>About Trivia</h1>
+    </section>
+
+    <!-- About Content -->
+    <div class="about-content">
+        <div class="container">
+            <div class="about-section">
+                <div class="about-text">
+                    <h2>Our Story</h2>
+                    <p>Trivia is a women's western-wear brand that celebrates the modern, confident woman. Founded with a vision to offer young, fashion-conscious women looks for every season and styles for every reason, we have grown to become one of the most trusted names in women's fashion.</p>
+                    <p>Our journey began with a simple belief: every woman deserves to feel beautiful, confident, and comfortable in what she wears. Today, we engage with millions of women across 900+ retail touchpoints, including exclusive brand outlets, large format stores, and leading online fashion portals.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=450&fit=crop" alt="Our Story">
+                </div>
+            </div>
+
+            <div class="about-section reverse">
+                <div class="about-text">
+                    <h2>Our Mission</h2>
+                    <p>At Trivia, we believe fashion should be accessible, sustainable, and empowering. Our mission is to create clothing that makes every woman feel like the best version of herself, regardless of her age, body type, or personal style.</p>
+                    <p>We are committed to using quality materials, ethical manufacturing practices, and inclusive sizing to ensure that every piece we create meets the highest standards of excellence.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=600&h=450&fit=crop" alt="Our Mission">
+                </div>
+            </div>
+
+            <div class="about-section">
+                <div class="about-text">
+                    <h2>Quality & Craftsmanship</h2>
+                    <p>Every Trivia piece is crafted with meticulous attention to detail. From fabric selection to the final stitch, our team of skilled artisans ensures that each garment meets our exacting standards.</p>
+                    <p>We source the finest materials from around the world and work closely with our manufacturing partners to maintain the quality that our customers have come to expect and love.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=450&fit=crop" alt="Quality">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Values Section -->
+    <section class="values-section">
+        <div class="container">
+            <h2>Our Values</h2>
+            <div class="values-grid">
+                <div class="value-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>Customer First</h3>
+                    <p>Your satisfaction is our top priority. We're dedicated to providing exceptional service and quality products.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Sustainability</h3>
+                    <p>We're committed to reducing our environmental impact through sustainable practices and materials.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-gem"></i>
+                    <h3>Quality</h3>
+                    <p>Every piece is crafted with premium materials and attention to detail for lasting beauty.</p>
+                </div>
+                <div class="value-card">
+                    <i class="fas fa-users"></i>
+                    <h3>Inclusivity</h3>
+                    <p>Fashion is for everyone. We design for all body types and celebrate diversity.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <p>Trivia is a women's western-wear brand that offers young fashion conscious women, looks for every season and styles for every reason.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="stores.html">Our Stores</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>USEFUL LINKS</h4>
+                    <ul>
+                        <li><a href="return-policy.html">Return/Exchange Policy</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms Of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <ul>
+                        <li><a href="track-order.html">Track Order</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>NEWSLETTER</h4>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit">SUBSCRIBE</button>
+                    </form>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025, Trivia Clothing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">trivia</span>
+            <button class="mobile-nav-close"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="collection.html?category=new">AW'25</a></li>
+            <li><a href="collection.html">Clothing</a></li>
+            <li><a href="collection.html">Collection</a></li>
+            <li><a href="giftcard.html">Gift Card</a></li>
+            <li><a href="collection.html?sale=true">Sale</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

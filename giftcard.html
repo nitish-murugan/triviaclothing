@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gift Card - Trivia Clothing</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .giftcard-hero {
+            height: 400px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #333 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+        }
+        .giftcard-hero h1 {
+            font-family: var(--font-display);
+            font-size: 48px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        .giftcard-hero p {
+            font-size: 18px;
+            color: rgba(255,255,255,0.8);
+        }
+        .giftcard-section {
+            padding: 80px 0;
+        }
+        .giftcard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .giftcard-preview {
+            position: relative;
+        }
+        .giftcard-card {
+            background: linear-gradient(135deg, #c9a227 0%, #d4af37 50%, #c9a227 100%);
+            padding: 40px;
+            border-radius: 15px;
+            color: #fff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(201, 162, 39, 0.3);
+        }
+        .giftcard-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 40%, rgba(255,255,255,0.1) 50%, transparent 60%);
+            animation: shine 3s infinite;
+        }
+        @keyframes shine {
+            0% { transform: translateX(-100%) translateY(-100%); }
+            100% { transform: translateX(100%) translateY(100%); }
+        }
+        .giftcard-logo {
+            font-family: var(--font-display);
+            font-size: 24px;
+            margin-bottom: 60px;
+        }
+        .giftcard-amount {
+            font-size: 48px;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+        .giftcard-text {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .giftcard-form h2 {
+            font-family: var(--font-display);
+            font-size: 32px;
+            margin-bottom: 30px;
+        }
+        .amount-options {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+        .amount-option {
+            padding: 15px 30px;
+            border: 2px solid #ddd;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .amount-option:hover,
+        .amount-option.active {
+            border-color: #1a1a1a;
+            background: #1a1a1a;
+            color: #fff;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            font-size: 14px;
+            font-family: inherit;
+        }
+        .form-group textarea {
+            height: 100px;
+            resize: vertical;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #333;
+        }
+        .btn-purchase {
+            width: 100%;
+            padding: 18px;
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .btn-purchase:hover {
+            background: #c9a227;
+        }
+        .features-section {
+            background: #f8f8f8;
+            padding: 60px 0;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+        .feature-item i {
+            font-size: 40px;
+            color: #c9a227;
+            margin-bottom: 20px;
+        }
+        .feature-item h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+        .feature-item p {
+            font-size: 14px;
+            color: #666;
+        }
+        @media (max-width: 992px) {
+            .giftcard-grid {
+                grid-template-columns: 1fr;
+            }
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <button class="announcement-nav prev"><i class="fas fa-chevron-left"></i></button>
+        <div class="announcement-slider">
+            <div class="announcement-slide active">End Of Season Sale - UPTO 40% Off</div>
+        </div>
+        <button class="announcement-nav next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <!-- Brand Title -->
+        <div class="brand-title">
+            <a href="index.html" class="logo-text">trivia</a>
+        </div>
+        <!-- Navigation Row -->
+        <div class="nav-row">
+            <div class="search-icon">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="collection.html?category=new">AW'25</a></li>
+                    <li class="nav-item"><a href="collection.html">Clothing <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="collection.html">Collection <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="collection.html?category=accessories">Accessories <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item active"><a href="giftcard.html">Gift Card</a></li>
+                    <li class="nav-item"><a href="collection.html?sale=true">Sale</a></li>
+                    <li class="nav-item"><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="wishlist.html" class="icon-link" aria-label="Wishlist">
+                    <i class="far fa-heart"></i><span class="badge">0</span>
+                </a>
+                <a href="account.html" class="icon-link"><i class="far fa-user"></i></a>
+                <a href="cart.html" class="icon-link" aria-label="Cart">
+                    <i class="fas fa-shopping-bag"></i><span class="badge">0</span>
+                </a>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle"><span></span><span></span><span></span></button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search for products..." id="searchInput">
+            <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- Gift Card Hero -->
+    <section class="giftcard-hero">
+        <div>
+            <h1>Gift Card</h1>
+            <p>The perfect gift for the fashion lover in your life</p>
+        </div>
+    </section>
+
+    <!-- Gift Card Section -->
+    <section class="giftcard-section">
+        <div class="container">
+            <div class="giftcard-grid">
+                <div class="giftcard-preview">
+                    <div class="giftcard-card">
+                        <div class="giftcard-logo">trivia</div>
+                        <div class="giftcard-amount" id="cardAmount">₹ 1,000</div>
+                        <div class="giftcard-text">Gift Card</div>
+                    </div>
+                </div>
+                <div class="giftcard-form">
+                    <h2>Purchase a Gift Card</h2>
+                    <p style="color: #666; margin-bottom: 30px;">Select an amount and personalize your gift card with a special message.</p>
+                    
+                    <div class="amount-options">
+                        <button class="amount-option active" data-amount="1000">₹ 1,000</button>
+                        <button class="amount-option" data-amount="2000">₹ 2,000</button>
+                        <button class="amount-option" data-amount="3000">₹ 3,000</button>
+                        <button class="amount-option" data-amount="5000">₹ 5,000</button>
+                        <button class="amount-option" data-amount="10000">₹ 10,000</button>
+                    </div>
+
+                    <form id="giftcardForm">
+                        <div class="form-group">
+                            <label for="recipientName">Recipient's Name *</label>
+                            <input type="text" id="recipientName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="recipientEmail">Recipient's Email *</label>
+                            <input type="email" id="recipientEmail" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="senderName">Your Name *</label>
+                            <input type="text" id="senderName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Personal Message</label>
+                            <textarea id="message" placeholder="Add a personal message (optional)"></textarea>
+                        </div>
+                        <button type="submit" class="btn-purchase">Add to Cart - ₹ <span id="totalAmount">1,000</span></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Instant Delivery</h3>
+                    <p>Gift cards are delivered instantly via email to the recipient</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-calendar-alt"></i>
+                    <h3>Valid for 1 Year</h3>
+                    <p>Gift cards are valid for 12 months from the date of purchase</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-shopping-bag"></i>
+                    <h3>Use on Any Product</h3>
+                    <p>Redeem on any product across our entire collection</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <p>Trivia is a women's western-wear brand that offers young fashion conscious women, looks for every season and styles for every reason.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="stores.html">Our Stores</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>USEFUL LINKS</h4>
+                    <ul>
+                        <li><a href="return-policy.html">Return/Exchange Policy</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms Of Use</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <ul>
+                        <li><a href="track-order.html">Track Order</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>NEWSLETTER</h4>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit">SUBSCRIBE</button>
+                    </form>
+                    <div class="footer-social">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025, Trivia Clothing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">trivia</span>
+            <button class="mobile-nav-close"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="collection.html?category=new">AW'25</a></li>
+            <li><a href="collection.html">Clothing</a></li>
+            <li><a href="collection.html">Collection</a></li>
+            <li><a href="giftcard.html">Gift Card</a></li>
+            <li><a href="collection.html?sale=true">Sale</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Amount selection
+        let selectedAmount = 1000;
+        document.querySelectorAll('.amount-option').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.amount-option').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                selectedAmount = parseInt(this.dataset.amount);
+                document.getElementById('cardAmount').textContent = '₹ ' + selectedAmount.toLocaleString('en-IN');
+                document.getElementById('totalAmount').textContent = selectedAmount.toLocaleString('en-IN');
+            });
+        });
+
+        // Form submission
+        document.getElementById('giftcardForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Gift card added to cart!\n\nAmount: ₹ ' + selectedAmount.toLocaleString('en-IN'));
+        });
+    </script>
+</body>
+</html>

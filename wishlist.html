@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - Trivia Clothing</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .wishlist-section {
+            padding: 60px 0;
+            min-height: 60vh;
+        }
+        .wishlist-header {
+            margin-bottom: 40px;
+        }
+        .wishlist-header h1 {
+            font-family: var(--font-display);
+            font-size: 36px;
+            font-weight: 400;
+        }
+        .wishlist-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+        .wishlist-item {
+            position: relative;
+        }
+        .wishlist-item-image {
+            position: relative;
+            overflow: hidden;
+        }
+        .wishlist-item-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        .wishlist-item:hover .wishlist-item-image img {
+            transform: scale(1.05);
+        }
+        .remove-wishlist {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            width: 36px;
+            height: 36px;
+            background: #fff;
+            border: none;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .remove-wishlist i {
+            color: #e74c3c;
+        }
+        .wishlist-item-details {
+            padding: 15px 0;
+        }
+        .wishlist-item-details h3 {
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+        .wishlist-item-details .price {
+            font-size: 15px;
+            font-weight: 600;
+        }
+        .wishlist-item-details .original-price {
+            text-decoration: line-through;
+            color: #999;
+            margin-left: 8px;
+            font-weight: 400;
+        }
+        .btn-add-to-bag {
+            width: 100%;
+            padding: 12px;
+            background: #1a1a1a;
+            color: #fff;
+            border: none;
+            font-size: 12px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        .btn-add-to-bag:hover {
+            background: #c9a227;
+        }
+        .empty-wishlist {
+            text-align: center;
+            padding: 80px 0;
+        }
+        .empty-wishlist i {
+            font-size: 80px;
+            color: #ddd;
+            margin-bottom: 30px;
+        }
+        .empty-wishlist h2 {
+            font-family: var(--font-display);
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        .empty-wishlist p {
+            color: #666;
+            margin-bottom: 30px;
+        }
+        .btn-shop {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #1a1a1a;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .btn-shop:hover {
+            background: #c9a227;
+        }
+        @media (max-width: 1024px) {
+            .wishlist-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .wishlist-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            .wishlist-item-image img {
+                height: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <button class="announcement-nav prev"><i class="fas fa-chevron-left"></i></button>
+        <div class="announcement-slider">
+            <div class="announcement-slide active">End Of Season Sale - UPTO 40% Off</div>
+        </div>
+        <button class="announcement-nav next"><i class="fas fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <!-- Brand Title -->
+        <div class="brand-title">
+            <a href="index.html" class="logo-text">trivia</a>
+        </div>
+        <!-- Navigation Row -->
+        <div class="nav-row">
+            <div class="search-icon">
+                <button id="searchBtn"><i class="fas fa-search"></i></button>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="collection.html?category=new">AW'25</a></li>
+                    <li class="nav-item"><a href="collection.html">Clothing <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="collection.html">Collection <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="collection.html?category=accessories">Accessories <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="giftcard.html">Gift Card</a></li>
+                    <li class="nav-item"><a href="collection.html?sale=true">Sale</a></li>
+                    <li class="nav-item"><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="wishlist.html" class="icon-link" aria-label="Wishlist">
+                    <i class="fas fa-heart"></i><span class="badge">0</span>
+                </a>
+                <a href="account.html" class="icon-link"><i class="far fa-user"></i></a>
+                <a href="cart.html" class="icon-link" aria-label="Cart">
+                    <i class="fas fa-shopping-bag"></i><span class="badge">0</span>
+                </a>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle"><span></span><span></span><span></span></button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search for products..." id="searchInput">
+            <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- Wishlist Section -->
+    <section class="wishlist-section">
+        <div class="container">
+            <div class="wishlist-header">
+                <h1>My Wishlist</h1>
+            </div>
+
+            <!-- Empty Wishlist State -->
+            <div class="empty-wishlist" id="emptyWishlist">
+                <i class="far fa-heart"></i>
+                <h2>Your wishlist is empty</h2>
+                <p>Add items you love to your wishlist. Review them anytime and easily move them to your bag.</p>
+                <a href="collection.html" class="btn-shop">Continue Shopping</a>
+            </div>
+
+            <!-- Wishlist with Items (hidden by default) -->
+            <div class="wishlist-grid" id="wishlistGrid" style="display: none;">
+                <!-- Wishlist items will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <p>Trivia is a women's western-wear brand that offers young fashion conscious women, looks for every season and styles for every reason.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>USEFUL LINKS</h4>
+                    <ul>
+                        <li><a href="return-policy.html">Return/Exchange Policy</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <ul>
+                        <li><a href="track-order.html">Track Order</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>NEWSLETTER</h4>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit">SUBSCRIBE</button>
+                    </form>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025, Trivia Clothing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">trivia</span>
+            <button class="mobile-nav-close"><i class="fas fa-times"></i></button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="collection.html?category=new">AW'25</a></li>
+            <li><a href="collection.html">Clothing</a></li>
+            <li><a href="giftcard.html">Gift Card</a></li>
+            <li><a href="collection.html?sale=true">Sale</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Check wishlist and update display
+        function updateWishlistDisplay() {
+            const wishlistItems = JSON.parse(localStorage.getItem('trivia_wishlist')) || [];
+            const emptyWishlist = document.getElementById('emptyWishlist');
+            const wishlistGrid = document.getElementById('wishlistGrid');
+            
+            if (wishlistItems.length === 0) {
+                emptyWishlist.style.display = 'block';
+                wishlistGrid.style.display = 'none';
+            } else {
+                emptyWishlist.style.display = 'none';
+                wishlistGrid.style.display = 'grid';
+                renderWishlistItems(wishlistItems);
+            }
+        }
+        
+        function renderWishlistItems(items) {
+            const container = document.getElementById('wishlistGrid');
+            container.innerHTML = items.map((item, index) => `
+                <div class="wishlist-item" data-index="${index}">
+                    <div class="wishlist-item-image">
+                        <a href="product.html?id=${item.id}">
+                            <img src="${item.image}" alt="${item.name}">
+                        </a>
+                        <button class="remove-wishlist" onclick="removeFromWishlist(${index})">
+                            <i class="fas fa-heart"></i>
+                        </button>
+                    </div>
+                    <div class="wishlist-item-details">
+                        <h3>${item.name}</h3>
+                        <div class="price">
+                            ₹ ${item.price.toLocaleString('en-IN')}
+                            ${item.originalPrice ? `<span class="original-price">₹ ${item.originalPrice.toLocaleString('en-IN')}</span>` : ''}
+                        </div>
+                        <button class="btn-add-to-bag" onclick="moveToCart(${index})">Add to Bag</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        function removeFromWishlist(index) {
+            const wishlist = JSON.parse(localStorage.getItem('trivia_wishlist')) || [];
+            wishlist.splice(index, 1);
+            localStorage.setItem('trivia_wishlist', JSON.stringify(wishlist));
+            updateWishlistDisplay();
+            // Update badge count
+            document.querySelectorAll('.icon-link[aria-label="Wishlist"] .badge').forEach(badge => {
+                badge.textContent = wishlist.length;
+            });
+        }
+        
+        function moveToCart(index) {
+            const wishlist = JSON.parse(localStorage.getItem('trivia_wishlist')) || [];
+            const item = wishlist[index];
+            
+            // Add to cart
+            const cart = JSON.parse(localStorage.getItem('trivia_cart')) || [];
+            const existingIndex = cart.findIndex(c => c.id === item.id && c.size === 'M');
+            
+            if (existingIndex >= 0) {
+                cart[existingIndex].quantity += 1;
+            } else {
+                cart.push({
+                    ...item,
+                    size: 'M',
+                    quantity: 1
+                });
+            }
+            
+            localStorage.setItem('trivia_cart', JSON.stringify(cart));
+            
+            // Remove from wishlist
+            removeFromWishlist(index);
+            
+            // Update cart badge
+            document.querySelectorAll('.icon-link[aria-label="Cart"] .badge').forEach(badge => {
+                badge.textContent = cart.length;
+            });
+            
+            alert('Item moved to cart!');
+        }
+        
+        updateWishlistDisplay();
+    </script>
+</body>
+</html>

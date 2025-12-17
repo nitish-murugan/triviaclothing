@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dresses For Women - Trivia Clothing</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <button class="announcement-nav prev" aria-label="Previous announcement">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="announcement-slider">
+            <div class="announcement-slide active">End Of Season Sale - UPTO 40% Off</div>
+            <div class="announcement-slide">Knit Fits - Your Everyday Winter Vibe</div>
+            <div class="announcement-slide">Co-ords & Dresses for Every Occasion. Shop Now</div>
+            <div class="announcement-slide">Free Shipping on Orders Above ₹1999</div>
+        </div>
+        <button class="announcement-nav next" aria-label="Next announcement">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <!-- Brand Title -->
+        <div class="brand-title">
+            <a href="index.html" class="logo-text">trivia</a>
+        </div>
+        <!-- Navigation Row -->
+        <div class="nav-row">
+            <div class="search-icon">
+                <button aria-label="Search" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="collection.html?category=new">AW'25</a></li>
+                    <li class="nav-item"><a href="collection.html">Clothing <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="collection.html">Collection <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="collection.html?category=accessories">Accessories <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="giftcard.html">Gift Card</a></li>
+                    <li class="nav-item"><a href="collection.html?sale=true">Sale</a></li>
+                    <li class="nav-item"><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="wishlist.html" class="icon-link" aria-label="Wishlist">
+                    <i class="far fa-heart"></i>
+                    <span class="badge">0</span>
+                </a>
+                <a href="account.html" class="icon-link" aria-label="Account">
+                    <i class="far fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link" aria-label="Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge">0</span>
+                </a>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search for products..." id="searchInput">
+            <button class="search-close" id="searchClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>&gt;</span>
+                <span id="categoryTitle">Dresses For Women</span>
+            </nav>
+
+            <!-- Collection Header -->
+            <div class="collection-header">
+                <div class="filter-toggle" id="filterToggle">
+                    <i class="fas fa-sliders-h"></i>
+                    <span>Hide filters</span>
+                </div>
+                <span class="results-count"><span id="resultsCount">165</span> Results</span>
+                <div class="sort-select">
+                    <label for="sortBy">Sort:</label>
+                    <select id="sortBy">
+                        <option value="newest">New Arrivals</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="popular">Popularity</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Collection Content -->
+            <div class="collection-content">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar" id="filtersSidebar">
+                    <div class="filter-group open">
+                        <h4>Product Type <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="type" value="dresses"> Dresses
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="type" value="midi"> Midi Dresses
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="type" value="maxi"> Maxi Dresses
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="type" value="mini"> Mini Dresses
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="type" value="shirt-dress"> Shirt Dresses
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group open">
+                        <h4>Size <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="size" value="xs"> XS
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="size" value="s"> S
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="size" value="m"> M
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="size" value="l"> L
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="size" value="xl"> XL
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="size" value="2xl"> 2XL
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group open">
+                        <h4>Color <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options color-option">
+                            <span class="color-swatch" style="background-color: #000" data-color="black" title="Black"></span>
+                            <span class="color-swatch" style="background-color: #fff; border: 1px solid #ddd;" data-color="white" title="White"></span>
+                            <span class="color-swatch" style="background-color: #e74c3c" data-color="red" title="Red"></span>
+                            <span class="color-swatch" style="background-color: #3498db" data-color="blue" title="Blue"></span>
+                            <span class="color-swatch" style="background-color: #27ae60" data-color="green" title="Green"></span>
+                            <span class="color-swatch" style="background-color: #f39c12" data-color="yellow" title="Yellow"></span>
+                            <span class="color-swatch" style="background-color: #9b59b6" data-color="purple" title="Purple"></span>
+                            <span class="color-swatch" style="background-color: #e91e63" data-color="pink" title="Pink"></span>
+                            <span class="color-swatch" style="background-color: #795548" data-color="brown" title="Brown"></span>
+                            <span class="color-swatch" style="background-color: #607d8b" data-color="grey" title="Grey"></span>
+                        </div>
+                    </div>
+
+                    <div class="filter-group open">
+                        <h4>Brand <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="brand" value="trivia"> Trivia
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group open">
+                        <h4>Price <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options">
+                            <div class="price-range">
+                                <input type="number" placeholder="Min" id="priceMin">
+                                <span>to</span>
+                                <input type="number" placeholder="Max" id="priceMax">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Sleeve <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="sleeve" value="sleeveless"> Sleeveless
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="sleeve" value="short"> Short Sleeve
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="sleeve" value="3/4"> 3/4 Sleeve
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="sleeve" value="full"> Full Sleeve
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="filter-group">
+                        <h4>Fit & Flare <i class="fas fa-chevron-down"></i></h4>
+                        <div class="filter-options">
+                            <label class="filter-option">
+                                <input type="checkbox" name="fit" value="regular"> Regular Fit
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="fit" value="slim"> Slim Fit
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="fit" value="relaxed"> Relaxed Fit
+                            </label>
+                        </div>
+                    </div>
+                </aside>
+
+                <!-- Products Grid -->
+                <div class="products-grid" id="productsGrid">
+                    <!-- Product 1 -->
+                    <div class="product-card" data-product-id="p1">
+                        <div class="product-image">
+                            <span class="product-badge">NEW</span>
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop" alt="Denim Dress">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=p1" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=p1">Trivia Sleeveless Belted Denim Dress</a></h3>
+                            <p class="product-price">
+                                <span class="original-price">₹ 4,499.00</span>
+                                <span class="sale-price">₹ 2,699.00</span>
+                            </p>
+                            <p class="product-variants">1 color, 5 sizes</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card" data-product-id="p2">
+                        <div class="product-image">
+                            <span class="product-badge">NEW</span>
+                            <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&h=500&fit=crop" alt="Black A-Line Dress">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=p2" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=p2">Trivia Black A-Line Midi Dress</a></h3>
+                            <p class="product-price">from ₹ 3,299.00</p>
+                            <p class="product-variants">2 colors, 5 sizes</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card" data-product-id="p3">
+                        <div class="product-image">
+                            <span class="product-badge">NEW</span>
+                            <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400&h=500&fit=crop" alt="Red Shirt Dress">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=p3" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=p3">Trivia Red Button-Down Shirt Dress</a></h3>
+                            <p class="product-price">from ₹ 2,899.00</p>
+                            <p class="product-variants">1 color, 6 sizes</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card" data-product-id="p4">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&h=500&fit=crop" alt="Floral Maxi Dress">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=p4" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=p4">Trivia Floral Print Maxi Dress</a></h3>
+                            <p class="product-price">from ₹ 3,599.00</p>
+                            <p class="product-variants">1 color, 5 sizes</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card" data-product-id="p5">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop" alt="Burgundy Midi Dress">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=p5" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=p5">Trivia Burgundy Ribbed Midi Dress</a></h3>
+                            <p class="product-price">from ₹ 2,799.00</p>
+                            <p class="product-variants">2 colors, 5 sizes</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card" data-product-id="p6">
+                        <div class="product-image">
+                            <span class="product-badge" style="background-color: #e74c3c;">SALE</span>
+                            <img src="https://images.unsplash.com/photo-1502716119720-b23a93e5fe1b?w=400&h=500&fit=crop" alt="Navy Wrap Dress">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=p6" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=p6">Trivia Navy Blue Wrap Dress</a></h3>
+                            <p class="product-price">
+                                <span class="original-price">₹ 3,999.00</span>
+                                <span class="sale-price">₹ 2,399.00</span>
+                            </p>
+                            <p class="product-variants">1 color, 5 sizes</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 -->
+                    <div class="product-card" data-product-id="p7">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&h=500&fit=crop" alt="Velvet Dress">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=p7" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=p7">Trivia Copper Velvet Party Dress</a></h3>
+                            <p class="product-price">from ₹ 4,299.00</p>
+                            <p class="product-variants">1 color, 5 sizes</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 8 -->
+                    <div class="product-card" data-product-id="p8">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=400&h=500&fit=crop" alt="White Summer Dress">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=p8" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=p8">Trivia White Embroidered Summer Dress</a></h3>
+                            <p class="product-price">from ₹ 2,999.00</p>
+                            <p class="product-variants">1 color, 5 sizes</p>
+                        </div>
+                    </div>
+
+                    <!-- Product 9 -->
+                    <div class="product-card" data-product-id="p9">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400&h=500&fit=crop" alt="Black Cocktail Dress">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=p9" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=p9">Trivia Black Sleek Cocktail Dress</a></h3>
+                            <p class="product-price">from ₹ 3,799.00</p>
+                            <p class="product-variants">1 color, 5 sizes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button disabled><i class="fas fa-chevron-left"></i></button>
+                <a href="#" class="active">1</a>
+                <a href="#">2</a>
+                <a href="#">3</a>
+                <a href="#">4</a>
+                <a href="#">5</a>
+                <span>...</span>
+                <a href="#">19</a>
+                <button><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <p>Trivia is a women's western-wear brand that offers young fashion conscious women, looks for every season and styles for every reason. Trivia engages over millions of women across 900+ retail touch-points, including Exclusive Brand Outlets, Large Format Stores, and other leading retail outlets. Trivia is also available on leading online fashion portals and its own online store <a href="index.html">triviaclothing.com</a>.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="stores.html">Our Stores</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>USEFUL LINKS</h4>
+                    <ul>
+                        <li><a href="return-policy.html">Return/Exchange Policy</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms Of Use</a></li>
+                        <li><a href="size-guide.html">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <ul>
+                        <li><a href="track-order.html">Track Order</a></li>
+                        <li><a href="return-request.html">Return/Exchange Request</a></li>
+                        <li><a href="feedback.html">Feedback Form</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>NEWSLETTER</h4>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit">SUBSCRIBE</button>
+                    </form>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025, Trivia Clothing. All rights reserved. See our <a href="terms.html">terms of use</a> and <a href="privacy-policy.html">privacy notice</a>.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <button class="chat-toggle" aria-label="Chat with us">
+            <i class="fas fa-comment-dots"></i>
+            <span class="chat-badge">1</span>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">trivia</span>
+            <button class="mobile-nav-close" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="collection.html?category=new">AW'25</a></li>
+            <li class="has-submenu">
+                <a href="#">Clothing <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="collection.html?category=tops">Tops</a></li>
+                    <li><a href="collection.html?category=dresses">Dresses</a></li>
+                    <li><a href="collection.html?category=coords">Co-Ord Sets</a></li>
+                    <li><a href="collection.html?category=jackets">Jackets</a></li>
+                    <li><a href="collection.html?category=jeans">Jeans</a></li>
+                    <li><a href="collection.html?category=trousers">Trousers</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#">Collection <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="collection.html?collection=winter">Winter Collection</a></li>
+                    <li><a href="collection.html?collection=party">Party Wear</a></li>
+                    <li><a href="collection.html?collection=casual">Casual Wear</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#">Accessories <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="collection.html?category=bags">Bags</a></li>
+                    <li><a href="collection.html?category=sunglasses">Sunglasses</a></li>
+                    <li><a href="collection.html?category=scarves">Scarves</a></li>
+                </ul>
+            </li>
+            <li><a href="giftcard.html">Gift Card</a></li>
+            <li><a href="collection.html?sale=true">Sale</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Filter toggle functionality
+        document.getElementById('filterToggle').addEventListener('click', function() {
+            const sidebar = document.getElementById('filtersSidebar');
+            const toggleText = this.querySelector('span');
+            sidebar.classList.toggle('hidden');
+            if (sidebar.classList.contains('hidden')) {
+                sidebar.style.display = 'none';
+                toggleText.textContent = 'Show filters';
+            } else {
+                sidebar.style.display = 'block';
+                toggleText.textContent = 'Hide filters';
+            }
+        });
+
+        // Color swatch selection
+        document.querySelectorAll('.color-swatch').forEach(swatch => {
+            swatch.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

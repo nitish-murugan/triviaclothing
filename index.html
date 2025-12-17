@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Clothing - Women's Western Wear</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <button class="announcement-nav prev" aria-label="Previous announcement">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="announcement-slider">
+            <div class="announcement-slide active">End Of Season Sale - UPTO 40% Off</div>
+            <div class="announcement-slide">Knit Fits - Your Everyday Winter Vibe</div>
+            <div class="announcement-slide">Co-ords & Dresses for Every Occasion. Shop Now</div>
+            <div class="announcement-slide">Free Shipping on Orders Above ₹1999</div>
+        </div>
+        <button class="announcement-nav next" aria-label="Next announcement">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <!-- Brand Title -->
+        <div class="brand-title">
+            <a href="index.html" class="logo-text">trivia</a>
+        </div>
+        <!-- Navigation Row -->
+        <div class="nav-row">
+            <div class="search-icon">
+                <button aria-label="Search" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                <li class="nav-item"><a href="collection.html?category=new">AW'25</a></li>
+                <li class="nav-item has-dropdown">
+                    <a href="collection.html">Clothing <i class="fas fa-chevron-down"></i></a>
+                    <div class="mega-menu">
+                        <div class="mega-menu-content">
+                            <div class="mega-col">
+                                <h4>TOPWEAR</h4>
+                                <ul>
+                                    <li><a href="collection.html?category=tops">Tops</a></li>
+                                    <li><a href="collection.html?category=tshirts">T-Shirts</a></li>
+                                    <li><a href="collection.html?category=shirts">Shirts</a></li>
+                                    <li><a href="collection.html?category=sweaters">Sweaters</a></li>
+                                    <li><a href="collection.html?category=sweatshirts">Sweatshirts</a></li>
+                                    <li><a href="collection.html?category=cardigans">Cardigans & Shrugs</a></li>
+                                    <li><a href="collection.html?category=jackets">Jackets & Shackets</a></li>
+                                    <li><a href="collection.html?category=coats">Coats & Blazers</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col">
+                                <h4>BOTTOMWEAR</h4>
+                                <ul>
+                                    <li><a href="collection.html?category=trousers">Trousers</a></li>
+                                    <li><a href="collection.html?category=jeans">Jeans</a></li>
+                                    <li><a href="collection.html?category=palazzos">Palazzos</a></li>
+                                    <li><a href="collection.html?category=cargos">Cargos & Joggers</a></li>
+                                    <li><a href="collection.html?category=jeggings">Jeggings</a></li>
+                                    <li><a href="collection.html?category=skirts">Skirts & Shorts</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col">
+                                <h4>ALL-IN-ONES</h4>
+                                <ul>
+                                    <li><a href="collection.html?category=coords">Co-Ord Sets</a></li>
+                                    <li><a href="collection.html?category=dresses">Dresses</a></li>
+                                    <li><a href="collection.html?category=jumpsuits">Jumpsuits</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col">
+                                <h4>LOUNGEWEAR</h4>
+                                <ul>
+                                    <li><a href="collection.html?category=nightdress">Night Dress</a></li>
+                                    <li><a href="collection.html?category=nightsuits">Nightsuits</a></li>
+                                    <li><a href="collection.html?category=bottoms">Bottoms</a></li>
+                                </ul>
+                            </div>
+                            <div class="mega-col mega-image">
+                                <img src="https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?w=300&h=400&fit=crop" alt="New Collection">
+                                <div class="mega-image-text">
+                                    <span>Newest Releases</span>
+                                    <a href="collection.html?category=new" class="btn-discover">Discover</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="collection.html">Collection <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="collection.html?collection=winter">Winter Collection</a></li>
+                            <li><a href="collection.html?collection=party">Party Wear</a></li>
+                            <li><a href="collection.html?collection=casual">Casual Wear</a></li>
+                            <li><a href="collection.html?collection=office">Office Wear</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="collection.html?category=accessories">Accessories <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <ul>
+                            <li><a href="collection.html?category=bags">Bags</a></li>
+                            <li><a href="collection.html?category=sunglasses">Sunglasses</a></li>
+                            <li><a href="collection.html?category=scarves">Scarves</a></li>
+                            <li><a href="collection.html?category=belts">Belts</a></li>
+                        </ul>
+                    </div>
+                </li>
+                    <li class="nav-item"><a href="giftcard.html">Gift Card</a></li>
+                    <li class="nav-item"><a href="collection.html?sale=true">Sale</a></li>
+                    <li class="nav-item"><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="wishlist.html" class="icon-link" aria-label="Wishlist">
+                    <i class="far fa-heart"></i>
+                    <span class="badge">0</span>
+                </a>
+                <a href="account.html" class="icon-link" aria-label="Account">
+                    <i class="far fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link" aria-label="Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge">0</span>
+                </a>
+            </div>
+        </div>
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search for products..." id="searchInput">
+            <button class="search-close" id="searchClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider">
+            <div class="hero-slide active">
+                <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1920&h=900&fit=crop" alt="Sleigh In Style">
+                <div class="hero-content">
+                    <h1>Sleigh In Style</h1>
+                    <p>All The Dressy Vibes</p>
+                    <a href="collection.html?category=dresses" class="btn-primary">Shop Now</a>
+                </div>
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=1920&h=900&fit=crop" alt="Winter Collection">
+                <div class="hero-content">
+                    <h1>Winter Essentials</h1>
+                    <p>Stay Warm, Stay Stylish</p>
+                    <a href="collection.html?collection=winter" class="btn-primary">Shop Now</a>
+                </div>
+            </div>
+            <div class="hero-slide">
+                <img src="https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=1920&h=900&fit=crop" alt="New Arrivals">
+                <div class="hero-content">
+                    <h1>New Arrivals</h1>
+                    <p>Fresh Styles Just Dropped</p>
+                    <a href="collection.html?category=new" class="btn-primary">Shop Now</a>
+                </div>
+            </div>
+        </div>
+        <div class="hero-nav">
+            <button class="hero-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="hero-next"><i class="fas fa-chevron-right"></i></button>
+        </div>
+        <div class="hero-dots"></div>
+    </section>
+
+    <!-- New Arrivals Section -->
+    <section class="new-arrivals">
+        <div class="container">
+            <div class="section-header">
+                <h2>New Arrivals</h2>
+                <div class="section-nav">
+                    <button class="slider-prev" aria-label="Previous"><i class="fas fa-arrow-left"></i></button>
+                    <button class="slider-next" aria-label="Next"><i class="fas fa-arrow-right"></i></button>
+                </div>
+            </div>
+            <div class="products-slider">
+                <div class="products-track">
+                    <!-- Product 1 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge">NEW</span>
+                            <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop" alt="Ribbed Belted Top and Bottom Set">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=1" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=1">Trivia Ribbed Belted Top and Bottom Plum Co-ord Set</a></h3>
+                            <p class="product-price">from ₹ 2,339.00</p>
+                            <p class="product-variants">1 color, 5 sizes</p>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge">NEW</span>
+                            <img src="https://images.unsplash.com/photo-1525450824786-227cbef70703?w=400&h=500&fit=crop" alt="Faux Fur Textured Pullover">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=2" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=2">Trivia Faux Fur Textured Pullover Off White Sweater</a></h3>
+                            <p class="product-price">from ₹ 2,219.00</p>
+                            <p class="product-variants">1 color, 6 sizes</p>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge">NEW</span>
+                            <img src="https://images.unsplash.com/photo-1485968579580-b6d095142e6e?w=400&h=500&fit=crop" alt="Contrast Trim Top">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=3" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=3">Trivia Contrast Trim Top and Solid Bottoms Plum Co-ord Set</a></h3>
+                            <p class="product-price">from ₹ 3,994.00</p>
+                            <p class="product-variants">1 color, 5 sizes</p>
+                        </div>
+                    </div>
+                    <!-- Product 4 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge">NEW</span>
+                            <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?w=400&h=500&fit=crop" alt="Black Knitted Co-ord Set">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=4" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=4">Trivia Contrast Trim Black Knitted Co-ord Set</a></h3>
+                            <p class="product-price">from ₹ 3,994.00</p>
+                            <p class="product-variants">1 color, 5 sizes</p>
+                        </div>
+                    </div>
+                    <!-- Product 5 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge">NEW</span>
+                            <img src="https://images.unsplash.com/photo-1548624313-0396c75e4b1a?w=400&h=500&fit=crop" alt="Belted Camel Brown Long Trench Coat">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=5" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=5">Trivia Belted Camel Brown Long Trench Coat</a></h3>
+                            <p class="product-price">from ₹ 2,399.00</p>
+                            <p class="product-variants">1 color, 6 sizes</p>
+                        </div>
+                    </div>
+                    <!-- Product 6 -->
+                    <div class="product-card">
+                        <div class="product-image">
+                            <span class="product-badge">NEW</span>
+                            <img src="https://images.unsplash.com/photo-1581044777550-4cfa60707c03?w=400&h=500&fit=crop" alt="Elegant Black Dress">
+                            <button class="wishlist-btn" aria-label="Add to wishlist">
+                                <i class="far fa-heart"></i>
+                            </button>
+                            <div class="product-actions">
+                                <a href="product.html?id=6" class="btn-quick-view">Quick View</a>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3><a href="product.html?id=6">Trivia Elegant Black Evening Dress</a></h3>
+                            <p class="product-price">from ₹ 4,299.00</p>
+                            <p class="product-variants">1 color, 5 sizes</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Section 1 -->
+    <section class="promo-banner">
+        <div class="banner-image">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&h=800&fit=crop" alt="Be Everyone U R">
+        </div>
+        <div class="banner-content left">
+            <h2>Be Everyone U R</h2>
+            <p>Looks for every season, styles for every reason.</p>
+            <a href="collection.html" class="btn-secondary">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Category Cards -->
+    <section class="category-section">
+        <div class="container">
+            <div class="category-grid">
+                <a href="collection.html?category=dresses" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=400&h=500&fit=crop" alt="Dresses">
+                    <div class="category-overlay">
+                        <h3>Dresses</h3>
+                    </div>
+                </a>
+                <a href="collection.html?category=tops" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=400&h=500&fit=crop" alt="Tops">
+                    <div class="category-overlay">
+                        <h3>Tops</h3>
+                    </div>
+                </a>
+                <a href="collection.html?category=coords" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=400&h=500&fit=crop" alt="Co-ords">
+                    <div class="category-overlay">
+                        <h3>Co-ords</h3>
+                    </div>
+                </a>
+                <a href="collection.html?category=jackets" class="category-card">
+                    <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?w=400&h=500&fit=crop" alt="Jackets">
+                    <div class="category-overlay">
+                        <h3>Jackets</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Section 2 -->
+    <section class="promo-banner glam-banner">
+        <div class="banner-image">
+            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=1920&h=800&fit=crop" alt="Glam Add-ons">
+        </div>
+        <div class="banner-content center">
+            <h2>Glam Add-ons</h2>
+            <p>Complete your look & conquer the day.</p>
+            <a href="collection.html?category=accessories" class="btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Blogs</h2>
+            <div class="blog-grid">
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600&h=400&fit=crop" alt="Christmas Party Outfit Ideas">
+                    </div>
+                    <div class="blog-content">
+                        <h3><a href="blog-post.html?id=1">Christmas Party Outfit Ideas for Women: Shine Bright This Festive Season</a></h3>
+                        <p>Festive season drip check! From sequins to chic co-ords, get ready to be totally slaying in this...</p>
+                        <a href="blog-post.html?id=1" class="read-more">Read More</a>
+                    </div>
+                </article>
+                <article class="blog-card">
+                    <div class="blog-image">
+                        <img src="https://images.unsplash.com/photo-1483985988355-763728e1935b?w=600&h=400&fit=crop" alt="Winter Layering Guide">
+                    </div>
+                    <div class="blog-content">
+                        <h3><a href="blog-post.html?id=2">Winter Layering Guide: Best Jackets & Coats for Women</a></h3>
+                        <p>Ready to look cozy, cute, and low-key iconic? These winter layering tips will help you achieve...</p>
+                        <a href="blog-post.html?id=2" class="read-more">Read More</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section">
+        <div class="container">
+            <div class="newsletter-content">
+                <h2>Subscribe to Our Newsletter</h2>
+                <p>Get exclusive offers, style tips, and new arrival updates straight to your inbox.</p>
+                <form class="newsletter-form" id="newsletterForm">
+                    <input type="email" placeholder="Enter your email address" required>
+                    <button type="submit" class="btn-primary">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <p>Trivia is a women's western-wear brand that offers young fashion conscious women, looks for every season and styles for every reason. Trivia engages over millions of women across 900+ retail touch-points, including Exclusive Brand Outlets, Large Format Stores, and other leading retail outlets. Trivia is also available on leading online fashion portals and its own online store <a href="index.html">triviaclothing.com</a>.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="stores.html">Our Stores</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>USEFUL LINKS</h4>
+                    <ul>
+                        <li><a href="return-policy.html">Return/Exchange Policy</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms Of Use</a></li>
+                        <li><a href="size-guide.html">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <ul>
+                        <li><a href="track-order.html">Track Order</a></li>
+                        <li><a href="return-request.html">Return/Exchange Request</a></li>
+                        <li><a href="feedback.html">Feedback Form</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>NEWSLETTER</h4>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit">SUBSCRIBE</button>
+                    </form>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025, Trivia Clothing. All rights reserved. See our <a href="terms.html">terms of use</a> and <a href="privacy-policy.html">privacy notice</a>.</p>
+                <div class="popular-searches">
+                    <p><strong>Popular Searches:</strong></p>
+                    <p>
+                        <a href="collection.html?search=shirts">Shirts for Women</a> |
+                        <a href="collection.html?search=sweatshirts">Sweatshirts for Women</a> |
+                        <a href="collection.html?search=cardigans">Cardigans for Women</a> |
+                        <a href="collection.html?search=jackets">Jackets for Women</a> |
+                        <a href="collection.html?search=blazers">Blazers for Women</a> |
+                        <a href="collection.html?search=winter">Winter Wear for Women</a> |
+                        <a href="collection.html?search=tops">Tops for Women</a> |
+                        <a href="collection.html?search=tshirts">T-shirts for Women</a> |
+                        <a href="collection.html?search=trousers">Trousers for Women</a> |
+                        <a href="collection.html?search=cargos">Cargos for Women</a> |
+                        <a href="collection.html?search=jeggings">Jeggings for Women</a> |
+                        <a href="collection.html?search=skirts">Skirts & Shorts for Women</a> |
+                        <a href="collection.html?search=coords">Co-ord Sets for Women</a> |
+                        <a href="collection.html?search=dresses">Dresses for Women</a> |
+                        <a href="collection.html?search=jumpsuits">Jumpsuits for Women</a> |
+                        <a href="collection.html?search=denim">Denim Outfits for Women</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <button class="chat-toggle" aria-label="Chat with us">
+            <i class="fas fa-comment-dots"></i>
+            <span class="chat-badge">1</span>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">trivia</span>
+            <button class="mobile-nav-close" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="collection.html?category=new">AW'25</a></li>
+            <li class="has-submenu">
+                <a href="#">Clothing <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="collection.html?category=tops">Tops</a></li>
+                    <li><a href="collection.html?category=dresses">Dresses</a></li>
+                    <li><a href="collection.html?category=coords">Co-Ord Sets</a></li>
+                    <li><a href="collection.html?category=jackets">Jackets</a></li>
+                    <li><a href="collection.html?category=jeans">Jeans</a></li>
+                    <li><a href="collection.html?category=trousers">Trousers</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#">Collection <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="collection.html?collection=winter">Winter Collection</a></li>
+                    <li><a href="collection.html?collection=party">Party Wear</a></li>
+                    <li><a href="collection.html?collection=casual">Casual Wear</a></li>
+                </ul>
+            </li>
+            <li class="has-submenu">
+                <a href="#">Accessories <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="collection.html?category=bags">Bags</a></li>
+                    <li><a href="collection.html?category=sunglasses">Sunglasses</a></li>
+                    <li><a href="collection.html?category=scarves">Scarves</a></li>
+                </ul>
+            </li>
+            <li><a href="giftcard.html">Gift Card</a></li>
+            <li><a href="collection.html?sale=true">Sale</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

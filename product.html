@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trivia Sleeveless Belted Denim Dress - Trivia Clothing</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <button class="announcement-nav prev" aria-label="Previous announcement">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <div class="announcement-slider">
+            <div class="announcement-slide active">End Of Season Sale - UPTO 40% Off</div>
+            <div class="announcement-slide">Knit Fits - Your Everyday Winter Vibe</div>
+            <div class="announcement-slide">Co-ords & Dresses for Every Occasion. Shop Now</div>
+            <div class="announcement-slide">Free Shipping on Orders Above ₹1999</div>
+        </div>
+        <button class="announcement-nav next" aria-label="Next announcement">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <!-- Brand Title -->
+        <div class="brand-title">
+            <a href="index.html" class="logo-text">trivia</a>
+        </div>
+        <!-- Navigation Row -->
+        <div class="nav-row">
+            <div class="search-icon">
+                <button aria-label="Search" id="searchBtn">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <nav class="main-nav">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="collection.html?category=new">AW'25</a></li>
+                    <li class="nav-item"><a href="collection.html">Clothing <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="collection.html">Collection <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="collection.html?category=accessories">Accessories <i class="fas fa-chevron-down"></i></a></li>
+                    <li class="nav-item"><a href="giftcard.html">Gift Card</a></li>
+                    <li class="nav-item"><a href="collection.html?sale=true">Sale</a></li>
+                    <li class="nav-item"><a href="blog.html">Blog</a></li>
+                </ul>
+            </nav>
+            <div class="header-icons">
+                <a href="wishlist.html" class="icon-link" aria-label="Wishlist">
+                    <i class="far fa-heart"></i>
+                    <span class="badge">0</span>
+                </a>
+                <a href="account.html" class="icon-link" aria-label="Account">
+                    <i class="far fa-user"></i>
+                </a>
+                <a href="cart.html" class="icon-link" aria-label="Cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="badge">0</span>
+                </a>
+            </div>
+        </div>
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </header>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" placeholder="Search for products..." id="searchInput">
+            <button class="search-close" id="searchClose">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="product-page">
+        <div class="container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a>
+                <span>&gt;</span>
+                <a href="collection.html?category=dresses">Dresses For Women</a>
+                <span>&gt;</span>
+                <span>Trivia Sleeveless Belted Denim Dress</span>
+            </nav>
+
+            <!-- Product Section -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; padding: 30px 0;">
+                <!-- Product Gallery -->
+                <div class="product-gallery">
+                    <div class="gallery-thumbs">
+                        <div class="thumb-item active">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=100&h=120&fit=crop" alt="Product view 1">
+                        </div>
+                        <div class="thumb-item">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=100&h=120&fit=crop&sat=-100" alt="Product view 2">
+                        </div>
+                        <div class="thumb-item">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=100&h=120&fit=crop&blur=1" alt="Product view 3">
+                        </div>
+                    </div>
+                    <div class="gallery-main">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=600&h=750&fit=crop" alt="Trivia Sleeveless Belted Denim Dress" id="mainImage">
+                    </div>
+                </div>
+
+                <!-- Product Details -->
+                <div class="product-details">
+                    <a href="#" class="wishlist-link">
+                        <i class="far fa-heart"></i> Add To Wishlist
+                    </a>
+                    
+                    <span class="product-badge">NEW</span>
+                    
+                    <h1>Trivia Sleeveless Belted Denim Dress</h1>
+                    
+                    <div class="price-block">
+                        <p class="mrp">MRP <span class="strike">₹ 4,499.00</span> <span class="current-price">₹ 2,699.00</span></p>
+                        <p class="tax-info">(Inclusive of all taxes)</p>
+                    </div>
+
+                    <div class="product-attributes">
+                        <span>Sleeveless</span>
+                        <span>Round Neckline</span>
+                        <span>Belted Waist</span>
+                        <span>Blue Colour</span>
+                        <span>Knee Length</span>
+                    </div>
+
+                    <div class="size-selector">
+                        <h4>SIZE: <span id="selectedSize">S</span></h4>
+                        <div class="size-options">
+                            <button class="size-option active" data-size="S">S</button>
+                            <button class="size-option" data-size="M">M</button>
+                            <button class="size-option" data-size="L">L</button>
+                            <button class="size-option" data-size="XL">XL</button>
+                            <button class="size-option" data-size="2XL">2XL</button>
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 25px;">
+                        <a href="size-guide.html" style="font-size: 13px; color: #666; text-decoration: underline;">Size Guide</a>
+                    </div>
+
+                    <!-- Product Description -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 15px;">PRODUCT DESCRIPTION</h4>
+                        <p style="font-size: 14px; color: #666; line-height: 1.8;">
+                            This stunning sleeveless denim dress features a flattering belted waist that cinches for a perfect silhouette. 
+                            Made from premium quality denim, this midi-length dress is perfect for both casual outings and semi-formal occasions. 
+                            The round neckline adds a classic touch while the clean lines ensure timeless elegance.
+                        </p>
+                    </div>
+
+                    <!-- Product Details -->
+                    <div style="margin-bottom: 30px;">
+                        <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 15px;">DETAILS</h4>
+                        <ul style="font-size: 14px; color: #666; line-height: 2;">
+                            <li>• Material: 100% Cotton Denim</li>
+                            <li>• Fit: Regular Fit</li>
+                            <li>• Length: Knee Length</li>
+                            <li>• Closure: Button Front</li>
+                            <li>• Care: Machine Wash Cold</li>
+                            <li>• Model is wearing size S</li>
+                        </ul>
+                    </div>
+
+                    <!-- Delivery Info -->
+                    <div style="padding: 20px; background: #f8f8f8; margin-bottom: 20px;">
+                        <h4 style="font-size: 14px; font-weight: 600; margin-bottom: 15px;">
+                            <i class="fas fa-truck" style="margin-right: 10px;"></i> DELIVERY & RETURNS
+                        </h4>
+                        <p style="font-size: 13px; color: #666; line-height: 1.8;">
+                            Free shipping on orders above ₹1999. Standard delivery in 5-7 business days.
+                            Easy 15-day returns and exchanges. <a href="return-policy.html" style="color: #333; text-decoration: underline;">Learn more</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Related Products -->
+            <section class="new-arrivals" style="padding-top: 60px;">
+                <div class="section-header">
+                    <h2>You May Also Like</h2>
+                    <div class="section-nav">
+                        <button class="slider-prev" aria-label="Previous"><i class="fas fa-arrow-left"></i></button>
+                        <button class="slider-next" aria-label="Next"><i class="fas fa-arrow-right"></i></button>
+                    </div>
+                </div>
+                <div class="products-slider">
+                    <div class="products-track">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=400&h=500&fit=crop" alt="Black A-Line Dress">
+                                <button class="wishlist-btn" aria-label="Add to wishlist">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <div class="product-actions">
+                                    <a href="product.html?id=2" class="btn-quick-view">Quick View</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3><a href="product.html?id=2">Trivia Black A-Line Midi Dress</a></h3>
+                                <p class="product-price">from ₹ 3,299.00</p>
+                                <p class="product-variants">2 colors, 5 sizes</p>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1496747611176-843222e1e57c?w=400&h=500&fit=crop" alt="Red Shirt Dress">
+                                <button class="wishlist-btn" aria-label="Add to wishlist">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <div class="product-actions">
+                                    <a href="product.html?id=3" class="btn-quick-view">Quick View</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3><a href="product.html?id=3">Trivia Red Button-Down Shirt Dress</a></h3>
+                                <p class="product-price">from ₹ 2,899.00</p>
+                                <p class="product-variants">1 color, 6 sizes</p>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=400&h=500&fit=crop" alt="Floral Maxi Dress">
+                                <button class="wishlist-btn" aria-label="Add to wishlist">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <div class="product-actions">
+                                    <a href="product.html?id=4" class="btn-quick-view">Quick View</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3><a href="product.html?id=4">Trivia Floral Print Maxi Dress</a></h3>
+                                <p class="product-price">from ₹ 3,599.00</p>
+                                <p class="product-variants">1 color, 5 sizes</p>
+                            </div>
+                        </div>
+                        <div class="product-card">
+                            <div class="product-image">
+                                <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=400&h=500&fit=crop" alt="Burgundy Dress">
+                                <button class="wishlist-btn" aria-label="Add to wishlist">
+                                    <i class="far fa-heart"></i>
+                                </button>
+                                <div class="product-actions">
+                                    <a href="product.html?id=5" class="btn-quick-view">Quick View</a>
+                                </div>
+                            </div>
+                            <div class="product-info">
+                                <h3><a href="product.html?id=5">Trivia Burgundy Ribbed Midi Dress</a></h3>
+                                <p class="product-price">from ₹ 2,799.00</p>
+                                <p class="product-variants">2 colors, 5 sizes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Product Actions Bar -->
+    <div class="product-actions-bar">
+        <div class="product-summary">
+            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=50&h=60&fit=crop" alt="Product">
+            <div class="info">
+                <h4>Trivia Sleeveless Belted Denim Dress</h4>
+                <p>MidBlue <a href="#" style="color: #333; text-decoration: underline;">Change</a></p>
+            </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 15px;">
+            <div>
+                <span style="text-decoration: line-through; color: #999; font-size: 14px;">MRP ₹ 4,499.00</span>
+                <span style="color: #e74c3c; font-size: 18px; font-weight: 600; margin-left: 10px;">₹ 2,699.00</span>
+            </div>
+            <button class="btn-add-to-bag" id="addToCart">Add to Bag</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" style="margin-bottom: 80px;">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col about-col">
+                    <p>Trivia is a women's western-wear brand that offers young fashion conscious women, looks for every season and styles for every reason. Trivia engages over millions of women across 900+ retail touch-points, including Exclusive Brand Outlets, Large Format Stores, and other leading retail outlets.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>COMPANY</h4>
+                    <ul>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="stores.html">Our Stores</a></li>
+                        <li><a href="blog.html">Blogs</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>USEFUL LINKS</h4>
+                    <ul>
+                        <li><a href="return-policy.html">Return/Exchange Policy</a></li>
+                        <li><a href="shipping-policy.html">Shipping Policy</a></li>
+                        <li><a href="privacy-policy.html">Privacy Policy</a></li>
+                        <li><a href="terms.html">Terms Of Use</a></li>
+                        <li><a href="size-guide.html">Size Guide</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>CUSTOMER SERVICE</h4>
+                    <ul>
+                        <li><a href="track-order.html">Track Order</a></li>
+                        <li><a href="return-request.html">Return/Exchange Request</a></li>
+                        <li><a href="feedback.html">Feedback Form</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>NEWSLETTER</h4>
+                    <form class="footer-newsletter">
+                        <input type="email" placeholder="Your email">
+                        <button type="submit">SUBSCRIBE</button>
+                    </form>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" aria-label="Pinterest"><i class="fab fa-pinterest-p"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Copyright © 2025, Trivia Clothing. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <button class="chat-toggle" aria-label="Chat with us">
+            <i class="fas fa-comment-dots"></i>
+            <span class="chat-badge">1</span>
+        </button>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <span class="logo-text">trivia</span>
+            <button class="mobile-nav-close" aria-label="Close menu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <ul class="mobile-nav-list">
+            <li><a href="collection.html?category=new">AW'25</a></li>
+            <li class="has-submenu">
+                <a href="#">Clothing <i class="fas fa-chevron-down"></i></a>
+                <ul class="submenu">
+                    <li><a href="collection.html?category=tops">Tops</a></li>
+                    <li><a href="collection.html?category=dresses">Dresses</a></li>
+                    <li><a href="collection.html?category=coords">Co-Ord Sets</a></li>
+                    <li><a href="collection.html?category=jackets">Jackets</a></li>
+                </ul>
+            </li>
+            <li><a href="giftcard.html">Gift Card</a></li>
+            <li><a href="collection.html?sale=true">Sale</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+    </nav>
+    <div class="mobile-nav-overlay" id="mobileNavOverlay"></div>
+
+    <script src="js/script.js"></script>
+    <script>
+        // Size selector
+        document.querySelectorAll('.size-option').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.size-option').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById('selectedSize').textContent = this.dataset.size;
+            });
+        });
+
+        // Gallery thumbnail click
+        document.querySelectorAll('.thumb-item').forEach(thumb => {
+            thumb.addEventListener('click', function() {
+                document.querySelectorAll('.thumb-item').forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                document.getElementById('mainImage').src = this.querySelector('img').src.replace('w=100', 'w=600').replace('h=120', 'h=750');
+            });
+        });
+
+        // Add to cart
+        document.getElementById('addToCart').addEventListener('click', function() {
+            const size = document.getElementById('selectedSize').textContent;
+            alert(`Added to cart!\n\nProduct: Trivia Sleeveless Belted Denim Dress\nSize: ${size}\nPrice: ₹ 2,699.00`);
+        });
+
+        // Wishlist link
+        document.querySelector('.wishlist-link').addEventListener('click', function(e) {
+            e.preventDefault();
+            const icon = this.querySelector('i');
+            icon.classList.toggle('far');
+            icon.classList.toggle('fas');
+            if (icon.classList.contains('fas')) {
+                this.innerHTML = '<i class="fas fa-heart" style="color: #e74c3c;"></i> Added to Wishlist';
+            } else {
+                this.innerHTML = '<i class="far fa-heart"></i> Add To Wishlist';
+            }
+        });
+    </script>
+</body>
+</html>
