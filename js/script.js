@@ -526,7 +526,37 @@ const cart = {
 // Initialize cart UI on page load
 document.addEventListener('DOMContentLoaded', () => {
     cart.updateUI();
+    updateUserIcon();
 });
+
+// ===== User Authentication Helper =====
+function updateUserIcon() {
+    const currentUser = JSON.parse(localStorage.getItem('trivia_current_user'));
+    const userIcons = document.querySelectorAll('.icon-link[aria-label="Account"], .icon-link[href="account.html"]');
+    
+    userIcons.forEach(icon => {
+        if (currentUser) {
+            // User is logged in - show filled user icon
+            const iconElement = icon.querySelector('i');
+            if (iconElement) {
+                iconElement.classList.remove('far');
+                iconElement.classList.add('fas');
+                iconElement.style.color = '#c9a227';
+            }
+            icon.setAttribute('title', `Logged in as ${currentUser.name}`);
+        }
+    });
+}
+
+// ===== Check if user is logged in =====
+function isUserLoggedIn() {
+    return localStorage.getItem('trivia_current_user') !== null;
+}
+
+// ===== Get current user =====
+function getCurrentUser() {
+    return JSON.parse(localStorage.getItem('trivia_current_user'));
+}
 
 // ===== Filter Functionality (for collection page) =====
 function initFilters() {

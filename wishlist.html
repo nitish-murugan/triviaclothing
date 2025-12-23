@@ -382,31 +382,61 @@
             const wishlist = JSON.parse(localStorage.getItem('trivia_wishlist')) || [];
             const item = wishlist[index];
             
-            // Add to cart
-            const cart = JSON.parse(localStorage.getItem('trivia_cart')) || [];
-            const existingIndex = cart.findIndex(c => c.id === item.id && c.size === 'M');
+            // Create cart item using global cart object
+            const cartItem = {
+                id: item.id || 'wishlist-' + index,
+                name: item.name,
+                price: item.price,
+                originalPrice: item.originalPrice,
+                size: 'M', // Default size
+                color: item.color || 'Default',
+                image: item.image,
+                quantity: 1
+            };
             
-            if (existingIndex >= 0) {
-                cart[existingIndex].quantity += 1;
-            } else {
-                cart.push({
-                    ...item,
-                    size: 'M',
-                    quantity: 1
-                });
-            }
-            
-            localStorage.setItem('trivia_cart', JSON.stringify(cart));
+            // Add to cart using global cart object
+            cart.addItem(cartItem);
             
             // Remove from wishlist
             removeFromWishlist(index);
             
-            // Update cart badge
-            document.querySelectorAll('.icon-link[aria-label="Cart"] .badge').forEach(badge => {
-                badge.textContent = cart.length;
-            });
+            // Show success notification
+            showMoveToCartNotification(item.name);
+        }
+        
+        function showMoveToCartNotification(productName) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #1a1a1a;
+                color: white;
+                padding: 20px 25px;
+                border-radius: 4px;
+                z-index: 10000;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                animation: slideIn 0.3s ease;
+                max-width: 300px;
+            `;
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-check-circle" style="color: #28a745; font-size: 20px;"></i>
+                    <div>
+                        <strong style="display: block; margin-bottom: 5px;">Moved to Bag!</strong>
+                        <span style="font-size: 13px; opacity: 0.9;">${productName}</span>
+                    </div>
+                </div>
+                <a href="cart.html" style="display: block; margin-top: 15px; padding: 10px; background: #c9a227; color: #fff; text-align: center; font-size: 12px; text-transform: uppercase;">View Bag</a>
+            `;
             
-            alert('Item moved to cart!');
+            const style = document.createElement('style');
+            style.textContent = `@keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }`;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => notification.remove(), 4000);
         }
         
         updateWishlistDisplay();

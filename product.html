@@ -451,8 +451,75 @@
         // Add to cart
         document.getElementById('addToCart').addEventListener('click', function() {
             const size = document.getElementById('selectedSize').textContent;
-            alert(`Added to cart!\n\nProduct: Trivia Sleeveless Belted Denim Dress\nSize: ${size}\nPrice: ₹ 2,699.00`);
+            const product = {
+                id: 'denim-dress-001',
+                name: 'Trivia Sleeveless Belted Denim Dress',
+                price: 2699,
+                originalPrice: 4499,
+                size: size,
+                color: 'MidBlue',
+                image: 'https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=150&h=200&fit=crop',
+                quantity: 1
+            };
+            
+            // Add to cart using the cart object from script.js
+            cart.addItem(product);
+            
+            // Show success notification
+            showCartNotification(product.name, size);
         });
+        
+        // Cart notification function
+        function showCartNotification(productName, size) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: #1a1a1a;
+                color: white;
+                padding: 20px 25px;
+                border-radius: 4px;
+                z-index: 10000;
+                box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+                animation: slideIn 0.3s ease;
+                max-width: 300px;
+            `;
+            notification.innerHTML = `
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <i class="fas fa-check-circle" style="color: #28a745; font-size: 20px;"></i>
+                    <div>
+                        <strong style="display: block; margin-bottom: 5px;">Added to Bag!</strong>
+                        <span style="font-size: 13px; opacity: 0.9;">${productName} - Size ${size}</span>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; display: flex; gap: 10px;">
+                    <a href="cart.html" style="flex: 1; padding: 10px; background: #c9a227; color: #fff; text-align: center; font-size: 12px; text-transform: uppercase;">View Bag</a>
+                    <button onclick="this.closest('div').parentElement.remove()" style="flex: 1; padding: 10px; background: transparent; border: 1px solid #fff; color: #fff; font-size: 12px; text-transform: uppercase; cursor: pointer;">Continue</button>
+                </div>
+            `;
+            
+            // Add animation styles
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from { transform: translateX(100%); opacity: 0; }
+                    to { transform: translateX(0); opacity: 1; }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            document.body.appendChild(notification);
+            
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                if (notification.parentElement) {
+                    notification.style.animation = 'slideIn 0.3s ease reverse';
+                    setTimeout(() => notification.remove(), 300);
+                }
+            }, 5000);
+        }
 
         // Wishlist link
         document.querySelector('.wishlist-link').addEventListener('click', function(e) {
