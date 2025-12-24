@@ -278,26 +278,81 @@ function initMobileNav() {
     function openMobileNav() {
         mobileNav.classList.add('active');
         mobileNavOverlay.classList.add('active');
+        menuToggle.classList.add('active');
         document.body.style.overflow = 'hidden';
+        // Prevent background scroll on iOS
+        document.body.style.position = 'fixed';
+        document.body.style.width = '100%';
     }
 
     function closeMobileNav() {
         mobileNav.classList.remove('active');
         mobileNavOverlay.classList.remove('active');
+        menuToggle.classList.remove('active');
         document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
     }
 
     menuToggle.addEventListener('click', openMobileNav);
-    mobileNavClose.addEventListener('click', closeMobileNav);
-    mobileNavOverlay.addEventListener('click', closeMobileNav);
+    
+    if (mobileNavClose) {
+        mobileNavClose.addEventListener('click', closeMobileNav);
+    }
+    
+    if (mobileNavOverlay) {
+        mobileNavOverlay.addEventListener('click', closeMobileNav);
+    }
 
+    // Close menu on escape key
+    document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+            closeMobileNav();
+        }
+    });
+
+    // Handle submenu toggles with touch-friendly behavior
     submenuToggles.forEach(toggle => {
         toggle.addEventListener('click', e => {
             e.preventDefault();
             const parent = toggle.parentElement;
+            
+            // Close other open submenus
+            submenuToggles.forEach(otherToggle => {
+                if (otherToggle !== toggle) {
+                    otherToggle.parentElement.classList.remove('open');
+                }
+            });
+            
             parent.classList.toggle('open');
         });
     });
+
+    // Close mobile nav on window resize to desktop
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            if (window.innerWidth > 992 && mobileNav.classList.contains('active')) {
+                closeMobileNav();
+            }
+        }, 250);
+    });
+
+    // Swipe to close mobile nav
+    let touchStartX = 0;
+    let touchEndX = 0;
+    
+    mobileNav.addEventListener('touchstart', e => {
+        touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    mobileNav.addEventListener('touchend', e => {
+        touchEndX = e.changedTouches[0].screenX;
+        if (touchStartX - touchEndX > 80) {
+            closeMobileNav();
+        }
+    }, { passive: true });
 }
 
 // ===== Mega Menu =====
