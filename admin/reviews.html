@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews - Admin Dashboard | Trivia Clothing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">trivia</span>
+                <span class="logo-sub">Admin</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-th-large"></i><span>Dashboard</span></a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link"><i class="fas fa-tshirt"></i><span>Products</span></a></li>
+                <li class="nav-item"><a href="orders.html" class="nav-link"><i class="fas fa-shopping-bag"></i><span>Orders</span><span class="badge">12</span></a></li>
+                <li class="nav-item"><a href="customers.html" class="nav-link"><i class="fas fa-users"></i><span>Customers</span></a></li>
+                <li class="nav-item"><a href="categories.html" class="nav-link"><i class="fas fa-tags"></i><span>Categories</span></a></li>
+                <li class="nav-item"><a href="inventory.html" class="nav-link"><i class="fas fa-boxes"></i><span>Inventory</span></a></li>
+                <li class="nav-item"><a href="analytics.html" class="nav-link"><i class="fas fa-chart-line"></i><span>Analytics</span></a></li>
+                <li class="nav-item"><a href="coupons.html" class="nav-link"><i class="fas fa-percent"></i><span>Coupons</span></a></li>
+                <li class="nav-item active"><a href="reviews.html" class="nav-link"><i class="fas fa-star"></i><span>Reviews</span></a></li>
+                <li class="nav-item"><a href="settings.html" class="nav-link"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer"><a href="../index.html" class="view-store"><i class="fas fa-external-link-alt"></i><span>View Store</span></a></div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search reviews..."></div>
+            </div>
+            <div class="header-right">
+                <div class="header-profile">
+                    <div class="profile-info"><span class="profile-name">Admin User</span><span class="profile-role">Store Manager</span></div>
+                    <div class="profile-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="Admin"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Customer Reviews</h1>
+                    <p>Manage and respond to customer feedback</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-outline" onclick="exportReviews()"><i class="fas fa-download"></i> Export</button>
+                </div>
+            </div>
+
+            <!-- Review Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-star"></i></div>
+                    <div class="stat-info">
+                        <h3>Average Rating</h3>
+                        <p class="stat-value">4.6 <small>/ 5</small></p>
+                        <div class="star-display">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-comments"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Reviews</h3>
+                        <p class="stat-value">1,847</p>
+                        <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 124 this month</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon warning"><i class="fas fa-clock"></i></div>
+                    <div class="stat-info">
+                        <h3>Pending</h3>
+                        <p class="stat-value">23</p>
+                        <span class="stat-change">Awaiting moderation</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon success"><i class="fas fa-reply"></i></div>
+                    <div class="stat-info">
+                        <h3>Response Rate</h3>
+                        <p class="stat-value">89%</p>
+                        <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 5% improvement</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rating Breakdown -->
+            <div class="card rating-breakdown-card">
+                <div class="card-header">
+                    <h3>Rating Distribution</h3>
+                </div>
+                <div class="card-body">
+                    <div class="rating-breakdown">
+                        <div class="rating-row">
+                            <span class="rating-label">5 stars</span>
+                            <div class="rating-bar"><div class="rating-fill" style="width: 65%;"></div></div>
+                            <span class="rating-count">1,201</span>
+                        </div>
+                        <div class="rating-row">
+                            <span class="rating-label">4 stars</span>
+                            <div class="rating-bar"><div class="rating-fill" style="width: 22%;"></div></div>
+                            <span class="rating-count">406</span>
+                        </div>
+                        <div class="rating-row">
+                            <span class="rating-label">3 stars</span>
+                            <div class="rating-bar"><div class="rating-fill" style="width: 8%;"></div></div>
+                            <span class="rating-count">148</span>
+                        </div>
+                        <div class="rating-row">
+                            <span class="rating-label">2 stars</span>
+                            <div class="rating-bar"><div class="rating-fill" style="width: 3%;"></div></div>
+                            <span class="rating-count">55</span>
+                        </div>
+                        <div class="rating-row">
+                            <span class="rating-label">1 star</span>
+                            <div class="rating-bar"><div class="rating-fill" style="width: 2%;"></div></div>
+                            <span class="rating-count">37</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filter Tabs -->
+            <div class="filter-tabs">
+                <button class="tab-btn active" data-filter="all">All Reviews</button>
+                <button class="tab-btn" data-filter="pending">Pending (23)</button>
+                <button class="tab-btn" data-filter="approved">Approved</button>
+                <button class="tab-btn" data-filter="replied">With Reply</button>
+            </div>
+
+            <!-- Reviews List -->
+            <div class="reviews-list">
+                <!-- Pending Review -->
+                <div class="review-card pending">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">EM</div>
+                            <div>
+                                <h4>Emily Martinez</h4>
+                                <span class="review-date">Dec 18, 2024</span>
+                            </div>
+                        </div>
+                        <div class="review-product">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=50&h=50&fit=crop" alt="">
+                            <span>Floral Summer Dress</span>
+                        </div>
+                        <span class="status-badge pending">Pending</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"Absolutely stunning dress! The fabric quality is exceptional and the fit is perfect. I received so many compliments at my friend's wedding. Will definitely be ordering more from Trivia!"</p>
+                    <div class="review-images">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=80&h=80&fit=crop" alt="">
+                        <img src="https://images.unsplash.com/photo-1596783074918-c84cb06531ca?w=80&h=80&fit=crop" alt="">
+                    </div>
+                    <div class="review-actions">
+                        <button class="btn btn-success btn-sm" onclick="approveReview(1)"><i class="fas fa-check"></i> Approve</button>
+                        <button class="btn btn-outline btn-sm" onclick="replyToReview(1)"><i class="fas fa-reply"></i> Reply</button>
+                        <button class="btn btn-danger btn-sm" onclick="rejectReview(1)"><i class="fas fa-times"></i> Reject</button>
+                    </div>
+                </div>
+
+                <!-- Approved Review with Reply -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">SJ</div>
+                            <div>
+                                <h4>Sarah Johnson</h4>
+                                <span class="review-date">Dec 15, 2024</span>
+                            </div>
+                        </div>
+                        <div class="review-product">
+                            <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=50&h=50&fit=crop" alt="">
+                            <span>Silk Blouse</span>
+                        </div>
+                        <span class="status-badge approved">Approved</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <p class="review-text">"Beautiful blouse with great attention to detail. The only reason I'm giving 4 stars instead of 5 is because the delivery took a bit longer than expected. Otherwise, perfect quality!"</p>
+                    <div class="review-reply">
+                        <div class="reply-header">
+                            <strong>Trivia Clothing</strong>
+                            <span>Dec 16, 2024</span>
+                        </div>
+                        <p>Thank you for your feedback, Sarah! We're thrilled you love the blouse. We apologize for the delay in shipping - we're working to improve our delivery times. Thank you for your patience! 💛</p>
+                    </div>
+                    <div class="review-actions">
+                        <button class="btn btn-outline btn-sm" onclick="editReply(2)"><i class="fas fa-edit"></i> Edit Reply</button>
+                        <button class="btn btn-outline btn-sm" onclick="hideReview(2)"><i class="fas fa-eye-slash"></i> Hide</button>
+                    </div>
+                </div>
+
+                <!-- Approved Review -->
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">JC</div>
+                            <div>
+                                <h4>Jessica Chen</h4>
+                                <span class="review-date">Dec 14, 2024</span>
+                            </div>
+                        </div>
+                        <div class="review-product">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=50&h=50&fit=crop" alt="">
+                            <span>Velvet Co-ord Set</span>
+                        </div>
+                        <span class="status-badge approved">Approved</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The velvet quality is absolutely luxurious! This co-ord set is so versatile - I can wear it together or as separates. The color is exactly as shown in the photos. Highly recommend!"</p>
+                    <div class="review-actions">
+                        <button class="btn btn-outline btn-sm" onclick="replyToReview(3)"><i class="fas fa-reply"></i> Reply</button>
+                        <button class="btn btn-outline btn-sm" onclick="featureReview(3)"><i class="fas fa-star"></i> Feature</button>
+                        <button class="btn btn-outline btn-sm" onclick="hideReview(3)"><i class="fas fa-eye-slash"></i> Hide</button>
+                    </div>
+                </div>
+
+                <!-- Low Rating Review -->
+                <div class="review-card flagged">
+                    <div class="review-header">
+                        <div class="reviewer-info">
+                            <div class="reviewer-avatar">MD</div>
+                            <div>
+                                <h4>Michelle Davis</h4>
+                                <span class="review-date">Dec 12, 2024</span>
+                            </div>
+                        </div>
+                        <div class="review-product">
+                            <img src="https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=50&h=50&fit=crop" alt="">
+                            <span>Cashmere Sweater</span>
+                        </div>
+                        <span class="status-badge warning">Needs Attention</span>
+                    </div>
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <p class="review-text">"Disappointed with this purchase. The sweater pills easily after just a few wears. Expected better quality for the price. Considering returning it."</p>
+                    <div class="review-actions">
+                        <button class="btn btn-primary btn-sm" onclick="replyToReview(4)"><i class="fas fa-reply"></i> Reply Now</button>
+                        <button class="btn btn-outline btn-sm" onclick="contactCustomer(4)"><i class="fas fa-envelope"></i> Contact Customer</button>
+                        <button class="btn btn-outline btn-sm" onclick="hideReview(4)"><i class="fas fa-eye-slash"></i> Hide</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="table-footer">
+                <div class="showing-info">Showing 1-4 of 23 pending reviews</div>
+                <div class="pagination">
+                    <button class="btn btn-sm" disabled><i class="fas fa-chevron-left"></i></button>
+                    <button class="btn btn-sm active">1</button>
+                    <button class="btn btn-sm">2</button>
+                    <button class="btn btn-sm">3</button>
+                    <button class="btn btn-sm"><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Reply Modal -->
+    <div class="modal-overlay" id="replyModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Reply to Review</h2>
+                <button class="modal-close" onclick="closeModal('replyModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="reply-preview">
+                    <div class="review-rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p>"Absolutely stunning dress! The fabric quality is exceptional..."</p>
+                </div>
+                <form id="replyForm">
+                    <div class="form-group">
+                        <label>Your Response</label>
+                        <textarea name="reply" rows="4" placeholder="Write a thoughtful response to this review..."></textarea>
+                    </div>
+                    <div class="quick-replies">
+                        <label>Quick Replies:</label>
+                        <button type="button" class="btn btn-sm btn-outline" onclick="insertQuickReply('thank')">Thank You</button>
+                        <button type="button" class="btn btn-sm btn-outline" onclick="insertQuickReply('sorry')">Apology</button>
+                        <button type="button" class="btn btn-sm btn-outline" onclick="insertQuickReply('contact')">Contact Us</button>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('replyModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="submitReply()">Post Reply</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+    <script>
+        function approveReview(id) {
+            showToast('success', 'Review Approved', 'The review is now visible on the website.');
+        }
+        
+        function rejectReview(id) {
+            if (confirm('Are you sure you want to reject this review?')) {
+                showToast('info', 'Review Rejected', 'The review has been removed.');
+            }
+        }
+        
+        function replyToReview(id) {
+            openModal('replyModal');
+        }
+        
+        function editReply(id) {
+            openModal('replyModal');
+        }
+        
+        function hideReview(id) {
+            showToast('info', 'Review Hidden', 'The review is no longer visible on the website.');
+        }
+        
+        function featureReview(id) {
+            showToast('success', 'Review Featured', 'This review will be highlighted on the product page.');
+        }
+        
+        function contactCustomer(id) {
+            showToast('info', 'Opening Email', 'Opening email client...');
+        }
+        
+        function submitReply() {
+            closeModal('replyModal');
+            showToast('success', 'Reply Posted', 'Your response has been published.');
+        }
+        
+        function insertQuickReply(type) {
+            const replies = {
+                'thank': 'Thank you so much for your wonderful feedback! We\'re thrilled that you love your purchase. Your satisfaction means the world to us! 💛',
+                'sorry': 'We\'re truly sorry to hear about your experience. Please reach out to our customer service team at support@trivia.com so we can make this right.',
+                'contact': 'We appreciate your feedback! If you have any concerns, please don\'t hesitate to contact our customer service team at support@trivia.com.'
+            };
+            document.querySelector('textarea[name="reply"]').value = replies[type];
+        }
+        
+        function exportReviews() {
+            showToast('success', 'Export Started', 'Reviews report is being generated...');
+        }
+        
+        // Tab filtering
+        document.querySelectorAll('.tab-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+    <style>
+        .star-display { color: #c9a227; font-size: 1rem; margin-top: 0.25rem; }
+        .rating-breakdown { display: flex; flex-direction: column; gap: 0.75rem; }
+        .rating-row { display: flex; align-items: center; gap: 1rem; }
+        .rating-label { width: 60px; font-size: 0.875rem; color: var(--text-light); }
+        .rating-bar { flex: 1; height: 8px; background: #eee; border-radius: 4px; overflow: hidden; }
+        .rating-fill { height: 100%; background: linear-gradient(90deg, #c9a227, #e8d78a); border-radius: 4px; }
+        .rating-count { width: 50px; text-align: right; font-size: 0.875rem; color: var(--text-light); }
+        .rating-breakdown-card { margin-bottom: 1.5rem; }
+        .rating-breakdown-card .card-body { padding: 1.5rem; }
+        
+        .filter-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+        .tab-btn { padding: 0.5rem 1.25rem; border: 1px solid var(--border-color); background: white; border-radius: 25px; cursor: pointer; transition: all 0.3s; font-size: 0.875rem; }
+        .tab-btn:hover { background: var(--light-bg); }
+        .tab-btn.active { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+        
+        .reviews-list { display: flex; flex-direction: column; gap: 1rem; }
+        .review-card { background: white; border-radius: 12px; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,0.05); border-left: 4px solid transparent; }
+        .review-card.pending { border-left-color: #ffc107; }
+        .review-card.flagged { border-left-color: #dc3545; background: #fff5f5; }
+        .review-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 1rem; flex-wrap: wrap; }
+        .reviewer-info { display: flex; align-items: center; gap: 0.75rem; flex: 1; }
+        .reviewer-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--primary-color); color: white; display: flex; align-items: center; justify-content: center; font-weight: 600; font-size: 0.875rem; }
+        .reviewer-info h4 { margin: 0; font-size: 0.95rem; }
+        .review-date { font-size: 0.8rem; color: var(--text-light); }
+        .review-product { display: flex; align-items: center; gap: 0.5rem; background: var(--light-bg); padding: 0.35rem 0.75rem; border-radius: 20px; }
+        .review-product img { width: 24px; height: 24px; border-radius: 4px; object-fit: cover; }
+        .review-product span { font-size: 0.8rem; }
+        .review-rating { margin-bottom: 0.75rem; color: #c9a227; }
+        .review-rating i { margin-right: 2px; }
+        .review-text { color: var(--text-color); line-height: 1.6; margin-bottom: 1rem; }
+        .review-images { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+        .review-images img { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; cursor: pointer; }
+        .review-reply { background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; border-left: 3px solid var(--accent-color); }
+        .reply-header { display: flex; justify-content: space-between; margin-bottom: 0.5rem; font-size: 0.85rem; }
+        .reply-header strong { color: var(--primary-color); }
+        .reply-header span { color: var(--text-light); }
+        .review-reply p { margin: 0; font-size: 0.9rem; color: var(--text-color); }
+        .review-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+        
+        .reply-preview { background: #f8f9fa; padding: 1rem; border-radius: 8px; margin-bottom: 1rem; }
+        .reply-preview .review-rating { margin-bottom: 0.5rem; }
+        .reply-preview p { margin: 0; font-style: italic; color: var(--text-light); }
+        .quick-replies { margin-top: 1rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap; }
+        .quick-replies label { font-size: 0.875rem; color: var(--text-light); margin-right: 0.5rem; }
+        
+        .status-badge.warning { background: #fff3cd; color: #856404; }
+        .status-badge.approved { background: #d4edda; color: #155724; }
+        .status-badge.pending { background: #fff3cd; color: #856404; }
+    </style>
+</body>
+</html>

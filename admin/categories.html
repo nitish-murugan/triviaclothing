@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories - Admin Dashboard | Trivia Clothing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">trivia</span>
+                <span class="logo-sub">Admin</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-th-large"></i><span>Dashboard</span></a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link"><i class="fas fa-tshirt"></i><span>Products</span></a></li>
+                <li class="nav-item"><a href="orders.html" class="nav-link"><i class="fas fa-shopping-bag"></i><span>Orders</span><span class="badge">12</span></a></li>
+                <li class="nav-item"><a href="customers.html" class="nav-link"><i class="fas fa-users"></i><span>Customers</span></a></li>
+                <li class="nav-item active"><a href="categories.html" class="nav-link"><i class="fas fa-tags"></i><span>Categories</span></a></li>
+                <li class="nav-item"><a href="inventory.html" class="nav-link"><i class="fas fa-boxes"></i><span>Inventory</span></a></li>
+                <li class="nav-item"><a href="analytics.html" class="nav-link"><i class="fas fa-chart-line"></i><span>Analytics</span></a></li>
+                <li class="nav-item"><a href="coupons.html" class="nav-link"><i class="fas fa-percent"></i><span>Coupons</span></a></li>
+                <li class="nav-item"><a href="reviews.html" class="nav-link"><i class="fas fa-star"></i><span>Reviews</span></a></li>
+                <li class="nav-item"><a href="settings.html" class="nav-link"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer"><a href="../index.html" class="view-store"><i class="fas fa-external-link-alt"></i><span>View Store</span></a></div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search categories..."></div>
+            </div>
+            <div class="header-right">
+                <div class="header-profile">
+                    <div class="profile-info"><span class="profile-name">Admin User</span><span class="profile-role">Store Manager</span></div>
+                    <div class="profile-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="Admin"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Categories</h1>
+                    <p>Organize your product catalog</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-primary" onclick="openModal('addCategoryModal')"><i class="fas fa-plus"></i> Add Category</button>
+                </div>
+            </div>
+
+            <!-- Categories Grid -->
+            <div class="categories-grid">
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=200&h=200&fit=crop" alt="Dresses">
+                        <div class="category-overlay">
+                            <button class="btn btn-sm" onclick="editCategory(1)"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteCategory(1)"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Dresses</h3>
+                        <span>85 products</span>
+                        <span class="category-status active">Active</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=200&h=200&fit=crop" alt="Tops">
+                        <div class="category-overlay">
+                            <button class="btn btn-sm" onclick="editCategory(2)"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteCategory(2)"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Tops</h3>
+                        <span>120 products</span>
+                        <span class="category-status active">Active</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=200&h=200&fit=crop" alt="Co-ords">
+                        <div class="category-overlay">
+                            <button class="btn btn-sm" onclick="editCategory(3)"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteCategory(3)"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Co-ords</h3>
+                        <span>45 products</span>
+                        <span class="category-status active">Active</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=200&h=200&fit=crop" alt="Trousers">
+                        <div class="category-overlay">
+                            <button class="btn btn-sm" onclick="editCategory(4)"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteCategory(4)"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Trousers</h3>
+                        <span>60 products</span>
+                        <span class="category-status active">Active</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=200&h=200&fit=crop" alt="Knitwear">
+                        <div class="category-overlay">
+                            <button class="btn btn-sm" onclick="editCategory(5)"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteCategory(5)"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Knitwear</h3>
+                        <span>35 products</span>
+                        <span class="category-status active">Active</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=200&h=200&fit=crop" alt="Jackets">
+                        <div class="category-overlay">
+                            <button class="btn btn-sm" onclick="editCategory(6)"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteCategory(6)"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Jackets</h3>
+                        <span>28 products</span>
+                        <span class="category-status active">Active</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=200&h=200&fit=crop" alt="Accessories">
+                        <div class="category-overlay">
+                            <button class="btn btn-sm" onclick="editCategory(7)"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteCategory(7)"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Accessories</h3>
+                        <span>52 products</span>
+                        <span class="category-status active">Active</span>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <div class="category-image">
+                        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=200&h=200&fit=crop" alt="Loungewear">
+                        <div class="category-overlay">
+                            <button class="btn btn-sm" onclick="editCategory(8)"><i class="fas fa-edit"></i></button>
+                            <button class="btn btn-sm btn-danger" onclick="deleteCategory(8)"><i class="fas fa-trash"></i></button>
+                        </div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Loungewear</h3>
+                        <span>38 products</span>
+                        <span class="category-status active">Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add Category Modal -->
+    <div class="modal-overlay" id="addCategoryModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Add New Category</h2>
+                <button class="modal-close" onclick="closeModal('addCategoryModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="categoryForm">
+                    <div class="form-group">
+                        <label>Category Name *</label>
+                        <input type="text" name="name" required placeholder="Enter category name">
+                    </div>
+                    <div class="form-group">
+                        <label>Slug</label>
+                        <input type="text" name="slug" placeholder="category-slug">
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" placeholder="Category description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <select name="status">
+                            <option value="active">Active</option>
+                            <option value="inactive">Inactive</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Category Image</label>
+                        <div class="image-upload-area">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Click to upload image</p>
+                            <input type="file" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('addCategoryModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveCategory()">Save Category</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+    <script>
+        function editCategory(id) {
+            document.querySelector('#addCategoryModal .modal-header h2').textContent = 'Edit Category';
+            openModal('addCategoryModal');
+        }
+        
+        function deleteCategory(id) {
+            if (confirm('Are you sure you want to delete this category?')) {
+                showToast('success', 'Category Deleted', 'The category has been removed successfully.');
+            }
+        }
+        
+        function saveCategory() {
+            closeModal('addCategoryModal');
+            showToast('success', 'Category Saved', 'The category has been saved successfully.');
+        }
+    </script>
+</body>
+</html>

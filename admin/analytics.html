@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Admin Dashboard | Trivia Clothing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin-styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">trivia</span>
+                <span class="logo-sub">Admin</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-th-large"></i><span>Dashboard</span></a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link"><i class="fas fa-tshirt"></i><span>Products</span></a></li>
+                <li class="nav-item"><a href="orders.html" class="nav-link"><i class="fas fa-shopping-bag"></i><span>Orders</span><span class="badge">12</span></a></li>
+                <li class="nav-item"><a href="customers.html" class="nav-link"><i class="fas fa-users"></i><span>Customers</span></a></li>
+                <li class="nav-item"><a href="categories.html" class="nav-link"><i class="fas fa-tags"></i><span>Categories</span></a></li>
+                <li class="nav-item"><a href="inventory.html" class="nav-link"><i class="fas fa-boxes"></i><span>Inventory</span></a></li>
+                <li class="nav-item active"><a href="analytics.html" class="nav-link"><i class="fas fa-chart-line"></i><span>Analytics</span></a></li>
+                <li class="nav-item"><a href="coupons.html" class="nav-link"><i class="fas fa-percent"></i><span>Coupons</span></a></li>
+                <li class="nav-item"><a href="reviews.html" class="nav-link"><i class="fas fa-star"></i><span>Reviews</span></a></li>
+                <li class="nav-item"><a href="settings.html" class="nav-link"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer"><a href="../index.html" class="view-store"><i class="fas fa-external-link-alt"></i><span>View Store</span></a></div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search..."></div>
+            </div>
+            <div class="header-right">
+                <div class="header-profile">
+                    <div class="profile-info"><span class="profile-name">Admin User</span><span class="profile-role">Store Manager</span></div>
+                    <div class="profile-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="Admin"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Analytics</h1>
+                    <p>Track your store performance</p>
+                </div>
+                <div class="page-actions">
+                    <select id="dateRange" class="filter-select">
+                        <option value="7">Last 7 Days</option>
+                        <option value="30" selected>Last 30 Days</option>
+                        <option value="90">Last 90 Days</option>
+                        <option value="365">Last Year</option>
+                    </select>
+                    <button class="btn btn-outline" onclick="exportReport()"><i class="fas fa-download"></i> Export Report</button>
+                </div>
+            </div>
+
+            <!-- Key Metrics -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Revenue</h3>
+                        <p class="stat-value">$48,590</p>
+                        <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 12.5% vs last period</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-shopping-cart"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Orders</h3>
+                        <p class="stat-value">342</p>
+                        <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 8.2% vs last period</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-receipt"></i></div>
+                    <div class="stat-info">
+                        <h3>Avg. Order Value</h3>
+                        <p class="stat-value">$142.05</p>
+                        <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 3.8% vs last period</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-percentage"></i></div>
+                    <div class="stat-info">
+                        <h3>Conversion Rate</h3>
+                        <p class="stat-value">3.2%</p>
+                        <span class="stat-change negative"><i class="fas fa-arrow-down"></i> 0.5% vs last period</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="dashboard-grid">
+                <div class="card chart-card full-width">
+                    <div class="card-header">
+                        <h3>Revenue Overview</h3>
+                        <div class="chart-legend">
+                            <span class="legend-item"><span class="legend-color" style="background: #c9a227;"></span> Revenue</span>
+                            <span class="legend-item"><span class="legend-color" style="background: #1a1a1a;"></span> Orders</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="revenueChart" height="100"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-grid two-col">
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <h3>Sales by Category</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="categoryChart" height="200"></canvas>
+                    </div>
+                </div>
+                <div class="card chart-card">
+                    <div class="card-header">
+                        <h3>Traffic Sources</h3>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="trafficChart" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Tables -->
+            <div class="dashboard-grid two-col">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Top Selling Products</h3>
+                        <a href="products.html" class="card-link">View All</a>
+                    </div>
+                    <div class="card-body">
+                        <table class="data-table compact">
+                            <thead>
+                                <tr>
+                                    <th>Product</th>
+                                    <th>Units Sold</th>
+                                    <th>Revenue</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="product-cell">
+                                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=40&h=40&fit=crop" alt="">
+                                            <span>Floral Summer Dress</span>
+                                        </div>
+                                    </td>
+                                    <td>156</td>
+                                    <td>$7,488</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="product-cell">
+                                            <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=40&h=40&fit=crop" alt="">
+                                            <span>Silk Blouse</span>
+                                        </div>
+                                    </td>
+                                    <td>142</td>
+                                    <td>$6,390</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="product-cell">
+                                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=40&h=40&fit=crop" alt="">
+                                            <span>Velvet Co-ord Set</span>
+                                        </div>
+                                    </td>
+                                    <td>98</td>
+                                    <td>$5,880</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="product-cell">
+                                            <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=40&h=40&fit=crop" alt="">
+                                            <span>Wide Leg Trousers</span>
+                                        </div>
+                                    </td>
+                                    <td>87</td>
+                                    <td>$4,350</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="product-cell">
+                                            <img src="https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=40&h=40&fit=crop" alt="">
+                                            <span>Cashmere Sweater</span>
+                                        </div>
+                                    </td>
+                                    <td>76</td>
+                                    <td>$6,080</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Top Customers</h3>
+                        <a href="customers.html" class="card-link">View All</a>
+                    </div>
+                    <div class="card-body">
+                        <table class="data-table compact">
+                            <thead>
+                                <tr>
+                                    <th>Customer</th>
+                                    <th>Orders</th>
+                                    <th>Total Spent</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <div class="avatar">EM</div>
+                                            <span>Emily Martinez</span>
+                                        </div>
+                                    </td>
+                                    <td>12</td>
+                                    <td>$2,340</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <div class="avatar">SJ</div>
+                                            <span>Sarah Johnson</span>
+                                        </div>
+                                    </td>
+                                    <td>9</td>
+                                    <td>$1,890</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <div class="avatar">JC</div>
+                                            <span>Jessica Chen</span>
+                                        </div>
+                                    </td>
+                                    <td>8</td>
+                                    <td>$1,650</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <div class="avatar">OW</div>
+                                            <span>Olivia Williams</span>
+                                        </div>
+                                    </td>
+                                    <td>7</td>
+                                    <td>$1,420</td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <div class="avatar">AB</div>
+                                            <span>Amanda Brown</span>
+                                        </div>
+                                    </td>
+                                    <td>6</td>
+                                    <td>$1,280</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Metrics -->
+            <div class="dashboard-grid three-col">
+                <div class="card metric-card">
+                    <div class="metric-icon"><i class="fas fa-eye"></i></div>
+                    <div class="metric-info">
+                        <h4>Page Views</h4>
+                        <p class="metric-value">28,450</p>
+                        <div class="metric-bar">
+                            <div class="metric-progress" style="width: 75%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card metric-card">
+                    <div class="metric-icon"><i class="fas fa-users"></i></div>
+                    <div class="metric-info">
+                        <h4>Unique Visitors</h4>
+                        <p class="metric-value">12,680</p>
+                        <div class="metric-bar">
+                            <div class="metric-progress" style="width: 62%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card metric-card">
+                    <div class="metric-icon"><i class="fas fa-clock"></i></div>
+                    <div class="metric-info">
+                        <h4>Avg. Session</h4>
+                        <p class="metric-value">4m 32s</p>
+                        <div class="metric-bar">
+                            <div class="metric-progress" style="width: 58%;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="admin-script.js"></script>
+    <script>
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart')?.getContext('2d');
+        if (revenueCtx) {
+            new Chart(revenueCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                    datasets: [{
+                        label: 'Revenue',
+                        data: [8500, 12000, 14500, 13590],
+                        borderColor: '#c9a227',
+                        backgroundColor: 'rgba(201, 162, 39, 0.1)',
+                        fill: true,
+                        tension: 0.4
+                    }, {
+                        label: 'Orders',
+                        data: [65, 85, 98, 94],
+                        borderColor: '#1a1a1a',
+                        backgroundColor: 'transparent',
+                        yAxisID: 'y1',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    interaction: { mode: 'index', intersect: false },
+                    plugins: { legend: { display: false } },
+                    scales: {
+                        y: { type: 'linear', display: true, position: 'left', ticks: { callback: v => '$' + v.toLocaleString() } },
+                        y1: { type: 'linear', display: true, position: 'right', grid: { drawOnChartArea: false } }
+                    }
+                }
+            });
+        }
+
+        // Category Sales Chart
+        const categoryCtx = document.getElementById('categoryChart')?.getContext('2d');
+        if (categoryCtx) {
+            new Chart(categoryCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Dresses', 'Tops', 'Co-ords', 'Trousers', 'Knitwear', 'Accessories'],
+                    datasets: [{
+                        data: [35, 25, 15, 12, 8, 5],
+                        backgroundColor: ['#c9a227', '#1a1a1a', '#d4a853', '#333333', '#e8c547', '#666666']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { position: 'bottom' } }
+                }
+            });
+        }
+
+        // Traffic Sources Chart
+        const trafficCtx = document.getElementById('trafficChart')?.getContext('2d');
+        if (trafficCtx) {
+            new Chart(trafficCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Organic', 'Direct', 'Social', 'Referral', 'Email', 'Paid'],
+                    datasets: [{
+                        label: 'Visitors',
+                        data: [4500, 3200, 2800, 1200, 800, 180],
+                        backgroundColor: ['#c9a227', '#1a1a1a', '#d4a853', '#333333', '#e8c547', '#666666']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true } }
+                }
+            });
+        }
+
+        function exportReport() {
+            showToast('success', 'Export Started', 'Your analytics report is being generated...');
+        }
+    </script>
+</body>
+</html>

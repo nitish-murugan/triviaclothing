@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Trivia Clothing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">trivia</span>
+                <span class="logo-sub">Admin</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item active">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-th-large"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">
+                        <i class="fas fa-tshirt"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="orders.html" class="nav-link">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Orders</span>
+                        <span class="badge">12</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="customers.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Customers</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="categories.html" class="nav-link">
+                        <i class="fas fa-tags"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="inventory.html" class="nav-link">
+                        <i class="fas fa-boxes"></i>
+                        <span>Inventory</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="coupons.html" class="nav-link">
+                        <i class="fas fa-percent"></i>
+                        <span>Coupons</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="reviews.html" class="nav-link">
+                        <i class="fas fa-star"></i>
+                        <span>Reviews</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <a href="../index.html" class="view-store">
+                <i class="fas fa-external-link-alt"></i>
+                <span>View Store</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search products, orders, customers...">
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </button>
+                    <div class="notification-dropdown" id="notificationDropdown">
+                        <div class="dropdown-header">
+                            <h4>Notifications</h4>
+                            <a href="#">Mark all as read</a>
+                        </div>
+                        <div class="notification-list">
+                            <div class="notification-item unread">
+                                <div class="notification-icon order">
+                                    <i class="fas fa-shopping-bag"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <p>New order #1234 received</p>
+                                    <span>2 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item unread">
+                                <div class="notification-icon stock">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <p>Low stock alert: Floral Maxi Dress</p>
+                                    <span>15 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon review">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="notification-content">
+                                    <p>New 5-star review received</p>
+                                    <span>1 hour ago</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-footer">
+                            <a href="#">View all notifications</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-profile">
+                    <div class="profile-info">
+                        <span class="profile-name">Admin User</span>
+                        <span class="profile-role">Store Manager</span>
+                    </div>
+                    <div class="profile-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="Admin">
+                    </div>
+                    <div class="profile-dropdown" id="profileDropdown">
+                        <a href="settings.html"><i class="fas fa-user"></i> My Profile</a>
+                        <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" class="logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Dashboard</h1>
+                    <p>Welcome back! Here's what's happening with your store today.</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-outline" id="exportBtn">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                    <button class="btn btn-primary" onclick="window.location.href='products.html'">
+                        <i class="fas fa-plus"></i> Add Product
+                    </button>
+                </div>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon sales">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Sales</h3>
+                        <div class="stat-value">₹2,45,890</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>12.5% from last month</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orders">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Orders</h3>
+                        <div class="stat-value">1,245</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>8.2% from last month</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon customers">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Customers</h3>
+                        <div class="stat-value">3,892</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>5.1% from last month</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon products">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Active Products</h3>
+                        <div class="stat-value">482</div>
+                        <div class="stat-change neutral">
+                            <i class="fas fa-minus"></i>
+                            <span>Same as last month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Charts Row -->
+            <div class="charts-row">
+                <div class="chart-card large">
+                    <div class="card-header">
+                        <h3>Sales Overview</h3>
+                        <div class="chart-filters">
+                            <button class="filter-btn active" data-period="week">Week</button>
+                            <button class="filter-btn" data-period="month">Month</button>
+                            <button class="filter-btn" data-period="year">Year</button>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="salesChart"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="card-header">
+                        <h3>Top Categories</h3>
+                        <a href="categories.html" class="view-all">View All</a>
+                    </div>
+                    <div class="chart-container">
+                        <canvas id="categoryChart"></canvas>
+                    </div>
+                    <div class="category-legend">
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #c9a227;"></span>
+                            <span>Dresses (35%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #1a1a1a;"></span>
+                            <span>Tops (28%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #666;"></span>
+                            <span>Co-ords (22%)</span>
+                        </div>
+                        <div class="legend-item">
+                            <span class="legend-color" style="background: #999;"></span>
+                            <span>Others (15%)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tables Row -->
+            <div class="tables-row">
+                <!-- Recent Orders -->
+                <div class="table-card">
+                    <div class="card-header">
+                        <h3>Recent Orders</h3>
+                        <a href="orders.html" class="view-all">View All</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Order ID</th>
+                                    <th>Customer</th>
+                                    <th>Products</th>
+                                    <th>Total</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>#TRV1234</strong></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=32&h=32&fit=crop&crop=face" alt="">
+                                            <span>Priya Sharma</span>
+                                        </div>
+                                    </td>
+                                    <td>3 items</td>
+                                    <td>₹4,590</td>
+                                    <td><span class="status-badge pending">Pending</span></td>
+                                    <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#TRV1233</strong></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=32&h=32&fit=crop&crop=face" alt="">
+                                            <span>Anita Desai</span>
+                                        </div>
+                                    </td>
+                                    <td>2 items</td>
+                                    <td>₹2,890</td>
+                                    <td><span class="status-badge processing">Processing</span></td>
+                                    <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#TRV1232</strong></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=32&h=32&fit=crop&crop=face" alt="">
+                                            <span>Sneha Patel</span>
+                                        </div>
+                                    </td>
+                                    <td>1 item</td>
+                                    <td>₹1,299</td>
+                                    <td><span class="status-badge shipped">Shipped</span></td>
+                                    <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#TRV1231</strong></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=32&h=32&fit=crop&crop=face" alt="">
+                                            <span>Kavya Nair</span>
+                                        </div>
+                                    </td>
+                                    <td>4 items</td>
+                                    <td>₹6,780</td>
+                                    <td><span class="status-badge delivered">Delivered</span></td>
+                                    <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>#TRV1230</strong></td>
+                                    <td>
+                                        <div class="customer-cell">
+                                            <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=32&h=32&fit=crop&crop=face" alt="">
+                                            <span>Meera Reddy</span>
+                                        </div>
+                                    </td>
+                                    <td>2 items</td>
+                                    <td>₹3,450</td>
+                                    <td><span class="status-badge delivered">Delivered</span></td>
+                                    <td><button class="action-btn"><i class="fas fa-eye"></i></button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Top Selling Products -->
+                <div class="table-card">
+                    <div class="card-header">
+                        <h3>Top Selling Products</h3>
+                        <a href="products.html" class="view-all">View All</a>
+                    </div>
+                    <div class="products-list">
+                        <div class="product-item">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=60&h=60&fit=crop" alt="">
+                            <div class="product-info">
+                                <h4>Floral Maxi Dress</h4>
+                                <span class="product-category">Dresses</span>
+                            </div>
+                            <div class="product-stats">
+                                <span class="price">₹2,499</span>
+                                <span class="sold">245 sold</span>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=60&h=60&fit=crop" alt="">
+                            <div class="product-info">
+                                <h4>Silk Blend Blouse</h4>
+                                <span class="product-category">Tops</span>
+                            </div>
+                            <div class="product-stats">
+                                <span class="price">₹1,299</span>
+                                <span class="sold">198 sold</span>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=60&h=60&fit=crop" alt="">
+                            <div class="product-info">
+                                <h4>Co-ord Set Blue</h4>
+                                <span class="product-category">Co-ords</span>
+                            </div>
+                            <div class="product-stats">
+                                <span class="price">₹3,499</span>
+                                <span class="sold">156 sold</span>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <img src="https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=60&h=60&fit=crop" alt="">
+                            <div class="product-info">
+                                <h4>Winter Cardigan</h4>
+                                <span class="product-category">Knitwear</span>
+                            </div>
+                            <div class="product-stats">
+                                <span class="price">₹1,899</span>
+                                <span class="sold">134 sold</span>
+                            </div>
+                        </div>
+                        <div class="product-item">
+                            <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=60&h=60&fit=crop" alt="">
+                            <div class="product-info">
+                                <h4>Denim Jacket</h4>
+                                <span class="product-category">Jackets</span>
+                            </div>
+                            <div class="product-stats">
+                                <span class="price">₹2,799</span>
+                                <span class="sold">112 sold</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Low Stock & Recent Activity -->
+            <div class="bottom-row">
+                <!-- Low Stock Alert -->
+                <div class="alert-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Low Stock Alerts</h3>
+                        <a href="inventory.html" class="view-all">Manage Inventory</a>
+                    </div>
+                    <div class="alert-list">
+                        <div class="alert-item">
+                            <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=50&h=50&fit=crop" alt="">
+                            <div class="alert-info">
+                                <h4>Floral Maxi Dress - Size M</h4>
+                                <span class="stock-count critical">Only 3 left</span>
+                            </div>
+                            <button class="btn btn-sm">Restock</button>
+                        </div>
+                        <div class="alert-item">
+                            <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=50&h=50&fit=crop" alt="">
+                            <div class="alert-info">
+                                <h4>Silk Blend Blouse - White</h4>
+                                <span class="stock-count warning">Only 8 left</span>
+                            </div>
+                            <button class="btn btn-sm">Restock</button>
+                        </div>
+                        <div class="alert-item">
+                            <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=50&h=50&fit=crop" alt="">
+                            <div class="alert-info">
+                                <h4>Co-ord Set Blue - Size S</h4>
+                                <span class="stock-count critical">Only 2 left</span>
+                            </div>
+                            <button class="btn btn-sm">Restock</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="activity-card">
+                    <div class="card-header">
+                        <h3>Recent Activity</h3>
+                    </div>
+                    <div class="activity-timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-icon order">
+                                <i class="fas fa-shopping-bag"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <p><strong>New order</strong> #TRV1234 placed by Priya Sharma</p>
+                                <span>2 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon customer">
+                                <i class="fas fa-user-plus"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <p><strong>New customer</strong> Riya Kapoor registered</p>
+                                <span>15 minutes ago</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon review">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <p><strong>5-star review</strong> received on Floral Maxi Dress</p>
+                                <span>1 hour ago</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon shipped">
+                                <i class="fas fa-truck"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <p><strong>Order shipped</strong> #TRV1230 dispatched</p>
+                                <span>2 hours ago</span>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-icon product">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                            <div class="timeline-content">
+                                <p><strong>New product</strong> Winter Collection Sweater added</p>
+                                <span>3 hours ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="admin-script.js"></script>
+</body>
+</html>

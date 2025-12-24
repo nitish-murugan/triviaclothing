@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - Admin Dashboard | Trivia Clothing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">trivia</span>
+                <span class="logo-sub">Admin</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-th-large"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="products.html" class="nav-link">
+                        <i class="fas fa-tshirt"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="orders.html" class="nav-link">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Orders</span>
+                        <span class="badge">12</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="customers.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Customers</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="categories.html" class="nav-link">
+                        <i class="fas fa-tags"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="inventory.html" class="nav-link">
+                        <i class="fas fa-boxes"></i>
+                        <span>Inventory</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="coupons.html" class="nav-link">
+                        <i class="fas fa-percent"></i>
+                        <span>Coupons</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="reviews.html" class="nav-link">
+                        <i class="fas fa-star"></i>
+                        <span>Reviews</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <a href="../index.html" class="view-store">
+                <i class="fas fa-external-link-alt"></i>
+                <span>View Store</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search products..." id="productSearch">
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </button>
+                </div>
+                <div class="header-profile">
+                    <div class="profile-info">
+                        <span class="profile-name">Admin User</span>
+                        <span class="profile-role">Store Manager</span>
+                    </div>
+                    <div class="profile-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="Admin">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Products Content -->
+        <div class="dashboard-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Products</h1>
+                    <p>Manage your product catalog</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-outline" onclick="exportProducts()">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                    <button class="btn btn-primary" onclick="openModal('addProductModal')">
+                        <i class="fas fa-plus"></i> Add Product
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="dresses">Dresses</option>
+                        <option value="tops">Tops</option>
+                        <option value="coords">Co-ords</option>
+                        <option value="trousers">Trousers</option>
+                        <option value="knitwear">Knitwear</option>
+                        <option value="jackets">Jackets</option>
+                    </select>
+                    <select id="statusFilter">
+                        <option value="">All Status</option>
+                        <option value="active">Active</option>
+                        <option value="draft">Draft</option>
+                        <option value="outofstock">Out of Stock</option>
+                    </select>
+                    <select id="sortFilter">
+                        <option value="newest">Newest First</option>
+                        <option value="oldest">Oldest First</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="name">Name A-Z</option>
+                    </select>
+                </div>
+                <div class="view-toggle">
+                    <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                    <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+
+            <!-- Products Grid -->
+            <div class="products-grid" id="productsGrid">
+                <!-- Product Card 1 -->
+                <div class="product-card" data-id="1">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=300&h=400&fit=crop" alt="Floral Maxi Dress">
+                        <span class="product-badge bestseller">Bestseller</span>
+                        <div class="product-actions">
+                            <button class="action-btn" title="Edit" onclick="editProduct(1)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn" title="View" onclick="viewProduct(1)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action-btn danger" title="Delete" onclick="deleteProduct(1)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Dresses</span>
+                        <h3 class="product-name">Floral Maxi Dress</h3>
+                        <div class="product-pricing">
+                            <span class="current-price">₹2,499</span>
+                            <span class="original-price">₹3,299</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="stock in-stock"><i class="fas fa-check-circle"></i> In Stock (45)</span>
+                            <span class="sku">SKU: TRV-DRS-001</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="product-card" data-id="2">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=300&h=400&fit=crop" alt="Silk Blend Blouse">
+                        <span class="product-badge new">New</span>
+                        <div class="product-actions">
+                            <button class="action-btn" title="Edit" onclick="editProduct(2)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn" title="View" onclick="viewProduct(2)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action-btn danger" title="Delete" onclick="deleteProduct(2)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Tops</span>
+                        <h3 class="product-name">Silk Blend Blouse</h3>
+                        <div class="product-pricing">
+                            <span class="current-price">₹1,299</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="stock in-stock"><i class="fas fa-check-circle"></i> In Stock (82)</span>
+                            <span class="sku">SKU: TRV-TOP-015</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="product-card" data-id="3">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=300&h=400&fit=crop" alt="Co-ord Set Blue">
+                        <div class="product-actions">
+                            <button class="action-btn" title="Edit" onclick="editProduct(3)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn" title="View" onclick="viewProduct(3)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action-btn danger" title="Delete" onclick="deleteProduct(3)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Co-ords</span>
+                        <h3 class="product-name">Co-ord Set Blue</h3>
+                        <div class="product-pricing">
+                            <span class="current-price">₹3,499</span>
+                            <span class="original-price">₹4,199</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="stock low-stock"><i class="fas fa-exclamation-circle"></i> Low Stock (8)</span>
+                            <span class="sku">SKU: TRV-CRD-007</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="product-card" data-id="4">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=300&h=400&fit=crop" alt="Winter Cardigan">
+                        <span class="product-badge sale">-30%</span>
+                        <div class="product-actions">
+                            <button class="action-btn" title="Edit" onclick="editProduct(4)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn" title="View" onclick="viewProduct(4)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action-btn danger" title="Delete" onclick="deleteProduct(4)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Knitwear</span>
+                        <h3 class="product-name">Winter Cardigan</h3>
+                        <div class="product-pricing">
+                            <span class="current-price">₹1,899</span>
+                            <span class="original-price">₹2,699</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="stock in-stock"><i class="fas fa-check-circle"></i> In Stock (56)</span>
+                            <span class="sku">SKU: TRV-KNT-023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 5 -->
+                <div class="product-card" data-id="5">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1583496661160-fb5886a0aaaa?w=300&h=400&fit=crop" alt="Denim Jacket">
+                        <div class="product-actions">
+                            <button class="action-btn" title="Edit" onclick="editProduct(5)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn" title="View" onclick="viewProduct(5)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action-btn danger" title="Delete" onclick="deleteProduct(5)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Jackets</span>
+                        <h3 class="product-name">Denim Jacket</h3>
+                        <div class="product-pricing">
+                            <span class="current-price">₹2,799</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="stock in-stock"><i class="fas fa-check-circle"></i> In Stock (34)</span>
+                            <span class="sku">SKU: TRV-JKT-011</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 -->
+                <div class="product-card" data-id="6">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=300&h=400&fit=crop" alt="High Waist Trousers">
+                        <div class="product-actions">
+                            <button class="action-btn" title="Edit" onclick="editProduct(6)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn" title="View" onclick="viewProduct(6)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action-btn danger" title="Delete" onclick="deleteProduct(6)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Trousers</span>
+                        <h3 class="product-name">High Waist Trousers</h3>
+                        <div class="product-pricing">
+                            <span class="current-price">₹1,599</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="stock out-of-stock"><i class="fas fa-times-circle"></i> Out of Stock</span>
+                            <span class="sku">SKU: TRV-TRS-008</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 7 -->
+                <div class="product-card" data-id="7">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=300&h=400&fit=crop" alt="Wrap Midi Dress">
+                        <span class="product-badge new">New</span>
+                        <div class="product-actions">
+                            <button class="action-btn" title="Edit" onclick="editProduct(7)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn" title="View" onclick="viewProduct(7)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action-btn danger" title="Delete" onclick="deleteProduct(7)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Dresses</span>
+                        <h3 class="product-name">Wrap Midi Dress</h3>
+                        <div class="product-pricing">
+                            <span class="current-price">₹2,199</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="stock in-stock"><i class="fas fa-check-circle"></i> In Stock (67)</span>
+                            <span class="sku">SKU: TRV-DRS-042</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 8 -->
+                <div class="product-card" data-id="8">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=300&h=400&fit=crop" alt="Oversized Sweater">
+                        <div class="product-actions">
+                            <button class="action-btn" title="Edit" onclick="editProduct(8)">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <button class="action-btn" title="View" onclick="viewProduct(8)">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                            <button class="action-btn danger" title="Delete" onclick="deleteProduct(8)">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-details">
+                        <span class="product-category">Knitwear</span>
+                        <h3 class="product-name">Oversized Sweater</h3>
+                        <div class="product-pricing">
+                            <span class="current-price">₹1,699</span>
+                            <span class="original-price">₹2,199</span>
+                        </div>
+                        <div class="product-meta">
+                            <span class="stock in-stock"><i class="fas fa-check-circle"></i> In Stock (29)</span>
+                            <span class="sku">SKU: TRV-KNT-031</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button disabled><i class="fas fa-chevron-left"></i></button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button>4</button>
+                <button><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add/Edit Product Modal -->
+    <div class="modal-overlay" id="addProductModal">
+        <div class="modal" style="max-width: 800px;">
+            <div class="modal-header">
+                <h2>Add New Product</h2>
+                <button class="modal-close" onclick="closeModal('addProductModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="productForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Product Name *</label>
+                            <input type="text" name="name" required placeholder="Enter product name">
+                        </div>
+                        <div class="form-group">
+                            <label>SKU *</label>
+                            <input type="text" name="sku" required placeholder="e.g., TRV-DRS-001">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea name="description" placeholder="Enter product description"></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Category *</label>
+                            <select name="category" required>
+                                <option value="">Select Category</option>
+                                <option value="dresses">Dresses</option>
+                                <option value="tops">Tops</option>
+                                <option value="coords">Co-ords</option>
+                                <option value="trousers">Trousers</option>
+                                <option value="knitwear">Knitwear</option>
+                                <option value="jackets">Jackets</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Collection</label>
+                            <select name="collection">
+                                <option value="">Select Collection</option>
+                                <option value="winter">Winter Collection</option>
+                                <option value="party">Party Wear</option>
+                                <option value="casual">Casual Wear</option>
+                                <option value="office">Office Wear</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Regular Price (₹) *</label>
+                            <input type="number" name="price" required placeholder="0.00">
+                        </div>
+                        <div class="form-group">
+                            <label>Sale Price (₹)</label>
+                            <input type="number" name="salePrice" placeholder="0.00">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Stock Quantity *</label>
+                            <input type="number" name="stock" required placeholder="0">
+                        </div>
+                        <div class="form-group">
+                            <label>Status</label>
+                            <select name="status">
+                                <option value="active">Active</option>
+                                <option value="draft">Draft</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Available Sizes</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" name="sizes" value="XS"> XS
+                            </label>
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" name="sizes" value="S"> S
+                            </label>
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" name="sizes" value="M"> M
+                            </label>
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" name="sizes" value="L"> L
+                            </label>
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" name="sizes" value="XL"> XL
+                            </label>
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" name="sizes" value="XXL"> XXL
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Product Images</label>
+                        <div class="image-upload-area" id="imageUpload">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Drag & drop images here or click to browse</p>
+                            <input type="file" multiple accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('addProductModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="saveProduct()">Save Product</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+    <script src="products.js"></script>
+</body>
+</html>

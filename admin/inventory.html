@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory - Admin Dashboard | Trivia Clothing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">trivia</span>
+                <span class="logo-sub">Admin</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebarToggle"><i class="fas fa-bars"></i></button>
+        </div>
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="index.html" class="nav-link"><i class="fas fa-th-large"></i><span>Dashboard</span></a></li>
+                <li class="nav-item"><a href="products.html" class="nav-link"><i class="fas fa-tshirt"></i><span>Products</span></a></li>
+                <li class="nav-item"><a href="orders.html" class="nav-link"><i class="fas fa-shopping-bag"></i><span>Orders</span><span class="badge">12</span></a></li>
+                <li class="nav-item"><a href="customers.html" class="nav-link"><i class="fas fa-users"></i><span>Customers</span></a></li>
+                <li class="nav-item"><a href="categories.html" class="nav-link"><i class="fas fa-tags"></i><span>Categories</span></a></li>
+                <li class="nav-item active"><a href="inventory.html" class="nav-link"><i class="fas fa-boxes"></i><span>Inventory</span></a></li>
+                <li class="nav-item"><a href="analytics.html" class="nav-link"><i class="fas fa-chart-line"></i><span>Analytics</span></a></li>
+                <li class="nav-item"><a href="coupons.html" class="nav-link"><i class="fas fa-percent"></i><span>Coupons</span></a></li>
+                <li class="nav-item"><a href="reviews.html" class="nav-link"><i class="fas fa-star"></i><span>Reviews</span></a></li>
+                <li class="nav-item"><a href="settings.html" class="nav-link"><i class="fas fa-cog"></i><span>Settings</span></a></li>
+            </ul>
+        </nav>
+        <div class="sidebar-footer"><a href="../index.html" class="view-store"><i class="fas fa-external-link-alt"></i><span>View Store</span></a></div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <header class="top-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle"><i class="fas fa-bars"></i></button>
+                <div class="search-box"><i class="fas fa-search"></i><input type="text" placeholder="Search inventory..." id="inventorySearch"></div>
+            </div>
+            <div class="header-right">
+                <div class="header-profile">
+                    <div class="profile-info"><span class="profile-name">Admin User</span><span class="profile-role">Store Manager</span></div>
+                    <div class="profile-avatar"><img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="Admin"></div>
+                </div>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Inventory Management</h1>
+                    <p>Track and manage your stock levels</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-outline" onclick="exportInventory()"><i class="fas fa-download"></i> Export</button>
+                    <button class="btn btn-primary" onclick="openModal('stockAdjustModal')"><i class="fas fa-plus"></i> Adjust Stock</button>
+                </div>
+            </div>
+
+            <!-- Inventory Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon"><i class="fas fa-boxes"></i></div>
+                    <div class="stat-info">
+                        <h3>Total Products</h3>
+                        <p class="stat-value">463</p>
+                        <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 12 new this week</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon warning"><i class="fas fa-exclamation-triangle"></i></div>
+                    <div class="stat-info">
+                        <h3>Low Stock Items</h3>
+                        <p class="stat-value">23</p>
+                        <span class="stat-change negative"><i class="fas fa-arrow-up"></i> 5 more than last week</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon danger"><i class="fas fa-times-circle"></i></div>
+                    <div class="stat-info">
+                        <h3>Out of Stock</h3>
+                        <p class="stat-value">8</p>
+                        <span class="stat-change negative">Needs attention</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon success"><i class="fas fa-dollar-sign"></i></div>
+                    <div class="stat-info">
+                        <h3>Inventory Value</h3>
+                        <p class="stat-value">$124,500</p>
+                        <span class="stat-change positive"><i class="fas fa-arrow-up"></i> 8.5% from last month</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <select id="stockFilter">
+                        <option value="all">All Stock</option>
+                        <option value="in-stock">In Stock</option>
+                        <option value="low-stock">Low Stock</option>
+                        <option value="out-of-stock">Out of Stock</option>
+                    </select>
+                    <select id="categoryFilter">
+                        <option value="">All Categories</option>
+                        <option value="dresses">Dresses</option>
+                        <option value="tops">Tops</option>
+                        <option value="co-ords">Co-ords</option>
+                        <option value="trousers">Trousers</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Inventory Table -->
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th><input type="checkbox" id="selectAll"></th>
+                                <th>Product</th>
+                                <th>SKU</th>
+                                <th>Category</th>
+                                <th>Current Stock</th>
+                                <th>Reserved</th>
+                                <th>Available</th>
+                                <th>Reorder Level</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?w=50&h=50&fit=crop" alt="">
+                                        <div>
+                                            <strong>Floral Summer Dress</strong>
+                                            <small>Size: S, M, L, XL</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>TRV-DRS-001</td>
+                                <td>Dresses</td>
+                                <td><strong>45</strong></td>
+                                <td>8</td>
+                                <td>37</td>
+                                <td>20</td>
+                                <td><span class="status-badge in-stock">In Stock</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-sm" title="Adjust Stock" onclick="adjustStock('TRV-DRS-001')"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm" title="View History" onclick="viewHistory('TRV-DRS-001')"><i class="fas fa-history"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="low-stock-row">
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="https://images.unsplash.com/photo-1564257631407-4deb1f99d992?w=50&h=50&fit=crop" alt="">
+                                        <div>
+                                            <strong>Silk Blouse</strong>
+                                            <small>Size: XS, S, M</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>TRV-TOP-015</td>
+                                <td>Tops</td>
+                                <td><strong class="text-warning">12</strong></td>
+                                <td>3</td>
+                                <td>9</td>
+                                <td>15</td>
+                                <td><span class="status-badge low-stock">Low Stock</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-sm" title="Adjust Stock" onclick="adjustStock('TRV-TOP-015')"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-warning" title="Reorder" onclick="reorderStock('TRV-TOP-015')"><i class="fas fa-shopping-cart"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="out-of-stock-row">
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?w=50&h=50&fit=crop" alt="">
+                                        <div>
+                                            <strong>Velvet Co-ord Set</strong>
+                                            <small>Size: M, L</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>TRV-SET-008</td>
+                                <td>Co-ords</td>
+                                <td><strong class="text-danger">0</strong></td>
+                                <td>0</td>
+                                <td>0</td>
+                                <td>10</td>
+                                <td><span class="status-badge out-of-stock">Out of Stock</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-sm btn-danger" title="Reorder Now" onclick="reorderStock('TRV-SET-008')"><i class="fas fa-shopping-cart"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="https://images.unsplash.com/photo-1594938298603-c8148c4dae35?w=50&h=50&fit=crop" alt="">
+                                        <div>
+                                            <strong>Wide Leg Trousers</strong>
+                                            <small>Size: S, M, L, XL</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>TRV-TRS-022</td>
+                                <td>Trousers</td>
+                                <td><strong>68</strong></td>
+                                <td>12</td>
+                                <td>56</td>
+                                <td>25</td>
+                                <td><span class="status-badge in-stock">In Stock</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-sm" title="Adjust Stock" onclick="adjustStock('TRV-TRS-022')"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm" title="View History" onclick="viewHistory('TRV-TRS-022')"><i class="fas fa-history"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr class="low-stock-row">
+                                <td><input type="checkbox"></td>
+                                <td>
+                                    <div class="product-cell">
+                                        <img src="https://images.unsplash.com/photo-1551163943-3f6a855d1153?w=50&h=50&fit=crop" alt="">
+                                        <div>
+                                            <strong>Cashmere Sweater</strong>
+                                            <small>Size: XS, S, M, L</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>TRV-KNT-007</td>
+                                <td>Knitwear</td>
+                                <td><strong class="text-warning">8</strong></td>
+                                <td>2</td>
+                                <td>6</td>
+                                <td>12</td>
+                                <td><span class="status-badge low-stock">Low Stock</span></td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="btn btn-sm" title="Adjust Stock" onclick="adjustStock('TRV-KNT-007')"><i class="fas fa-edit"></i></button>
+                                        <button class="btn btn-sm btn-warning" title="Reorder" onclick="reorderStock('TRV-KNT-007')"><i class="fas fa-shopping-cart"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="table-footer">
+                    <div class="showing-info">Showing 1-5 of 463 items</div>
+                    <div class="pagination">
+                        <button class="btn btn-sm" disabled><i class="fas fa-chevron-left"></i></button>
+                        <button class="btn btn-sm active">1</button>
+                        <button class="btn btn-sm">2</button>
+                        <button class="btn btn-sm">3</button>
+                        <span>...</span>
+                        <button class="btn btn-sm">93</button>
+                        <button class="btn btn-sm"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Stock Adjustment Modal -->
+    <div class="modal-overlay" id="stockAdjustModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>Adjust Stock</h2>
+                <button class="modal-close" onclick="closeModal('stockAdjustModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="stockAdjustForm">
+                    <div class="form-group">
+                        <label>Product *</label>
+                        <select name="product" required>
+                            <option value="">Select Product</option>
+                            <option value="TRV-DRS-001">Floral Summer Dress (TRV-DRS-001)</option>
+                            <option value="TRV-TOP-015">Silk Blouse (TRV-TOP-015)</option>
+                            <option value="TRV-SET-008">Velvet Co-ord Set (TRV-SET-008)</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Adjustment Type *</label>
+                            <select name="type" required>
+                                <option value="add">Add Stock</option>
+                                <option value="remove">Remove Stock</option>
+                                <option value="set">Set Stock Level</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Quantity *</label>
+                            <input type="number" name="quantity" required min="1" placeholder="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Reason</label>
+                        <select name="reason">
+                            <option value="">Select Reason</option>
+                            <option value="restock">Restock</option>
+                            <option value="return">Customer Return</option>
+                            <option value="damaged">Damaged Goods</option>
+                            <option value="correction">Inventory Correction</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Notes</label>
+                        <textarea name="notes" placeholder="Add any additional notes..."></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('stockAdjustModal')">Cancel</button>
+                <button class="btn btn-primary" onclick="submitStockAdjustment()">Update Stock</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stock History Modal -->
+    <div class="modal-overlay" id="stockHistoryModal">
+        <div class="modal modal-lg">
+            <div class="modal-header">
+                <h2>Stock History</h2>
+                <button class="modal-close" onclick="closeModal('stockHistoryModal')"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Quantity</th>
+                                <th>Reason</th>
+                                <th>User</th>
+                                <th>Notes</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Dec 15, 2024 14:30</td>
+                                <td><span class="badge badge-success">+25</span></td>
+                                <td>45 → 70</td>
+                                <td>Restock</td>
+                                <td>Admin</td>
+                                <td>Holiday inventory restock</td>
+                            </tr>
+                            <tr>
+                                <td>Dec 14, 2024 10:15</td>
+                                <td><span class="badge badge-danger">-5</span></td>
+                                <td>50 → 45</td>
+                                <td>Damaged Goods</td>
+                                <td>Admin</td>
+                                <td>Shipping damage</td>
+                            </tr>
+                            <tr>
+                                <td>Dec 10, 2024 09:00</td>
+                                <td><span class="badge badge-success">+30</span></td>
+                                <td>20 → 50</td>
+                                <td>Restock</td>
+                                <td>Admin</td>
+                                <td>Weekly restock</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal('stockHistoryModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+    <script>
+        function adjustStock(sku) {
+            document.querySelector('#stockAdjustForm select[name="product"]').value = sku;
+            openModal('stockAdjustModal');
+        }
+        
+        function viewHistory(sku) {
+            openModal('stockHistoryModal');
+        }
+        
+        function reorderStock(sku) {
+            showToast('info', 'Reorder Initiated', `Purchase order created for ${sku}`);
+        }
+        
+        function submitStockAdjustment() {
+            closeModal('stockAdjustModal');
+            showToast('success', 'Stock Updated', 'Inventory has been updated successfully.');
+        }
+        
+        function exportInventory() {
+            showToast('success', 'Export Started', 'Inventory report is being generated...');
+        }
+        
+        // Filter functionality
+        document.getElementById('stockFilter')?.addEventListener('change', function() {
+            showToast('info', 'Filter Applied', `Showing ${this.options[this.selectedIndex].text}`);
+        });
+        
+        document.getElementById('inventorySearch')?.addEventListener('input', function() {
+            // Search functionality
+        });
+    </script>
+</body>
+</html>

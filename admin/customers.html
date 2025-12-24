@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customers - Admin Dashboard | Trivia Clothing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="admin-styles.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <a href="../index.html" class="logo">
+                <span class="logo-text">trivia</span>
+                <span class="logo-sub">Admin</span>
+            </a>
+            <button class="sidebar-toggle" id="sidebarToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <nav class="sidebar-nav">
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fas fa-th-large"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="products.html" class="nav-link">
+                        <i class="fas fa-tshirt"></i>
+                        <span>Products</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="orders.html" class="nav-link">
+                        <i class="fas fa-shopping-bag"></i>
+                        <span>Orders</span>
+                        <span class="badge">12</span>
+                    </a>
+                </li>
+                <li class="nav-item active">
+                    <a href="customers.html" class="nav-link">
+                        <i class="fas fa-users"></i>
+                        <span>Customers</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="categories.html" class="nav-link">
+                        <i class="fas fa-tags"></i>
+                        <span>Categories</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="inventory.html" class="nav-link">
+                        <i class="fas fa-boxes"></i>
+                        <span>Inventory</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="analytics.html" class="nav-link">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Analytics</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="coupons.html" class="nav-link">
+                        <i class="fas fa-percent"></i>
+                        <span>Coupons</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="reviews.html" class="nav-link">
+                        <i class="fas fa-star"></i>
+                        <span>Reviews</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="settings.html" class="nav-link">
+                        <i class="fas fa-cog"></i>
+                        <span>Settings</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="sidebar-footer">
+            <a href="../index.html" class="view-store">
+                <i class="fas fa-external-link-alt"></i>
+                <span>View Store</span>
+            </a>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Top Header -->
+        <header class="top-header">
+            <div class="header-left">
+                <button class="menu-toggle" id="menuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search customers..." id="customerSearch">
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-notifications">
+                    <button class="notification-btn">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">5</span>
+                    </button>
+                </div>
+                <div class="header-profile">
+                    <div class="profile-info">
+                        <span class="profile-name">Admin User</span>
+                        <span class="profile-role">Store Manager</span>
+                    </div>
+                    <div class="profile-avatar">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=40&h=40&fit=crop&crop=face" alt="Admin">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Customers Content -->
+        <div class="dashboard-content">
+            <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-title">
+                    <h1>Customers</h1>
+                    <p>Manage your customer base</p>
+                </div>
+                <div class="page-actions">
+                    <button class="btn btn-outline" onclick="exportCustomers()">
+                        <i class="fas fa-download"></i> Export
+                    </button>
+                </div>
+            </div>
+
+            <!-- Customer Stats -->
+            <div class="stats-grid" style="grid-template-columns: repeat(3, 1fr);">
+                <div class="stat-card">
+                    <div class="stat-icon customers">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Customers</h3>
+                        <div class="stat-value">3,892</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>124 new this month</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon orders">
+                        <i class="fas fa-redo"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Returning Customers</h3>
+                        <div class="stat-value">2,156</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>55% return rate</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon sales">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Avg. Customer Value</h3>
+                        <div class="stat-value">₹4,250</div>
+                        <div class="stat-change positive">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>8% from last month</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Filters -->
+            <div class="filters-bar">
+                <div class="filter-group">
+                    <select id="sortFilter">
+                        <option value="recent">Recently Active</option>
+                        <option value="orders">Most Orders</option>
+                        <option value="spent">Highest Spend</option>
+                        <option value="name">Name A-Z</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Customers Table -->
+            <div class="table-card">
+                <div class="table-responsive">
+                    <table class="data-table" id="customersTable">
+                        <thead>
+                            <tr>
+                                <th>Customer</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Orders</th>
+                                <th>Total Spent</th>
+                                <th>Last Order</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="customer-cell">
+                                        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=40&h=40&fit=crop&crop=face" alt="">
+                                        <strong>Meera Reddy</strong>
+                                    </div>
+                                </td>
+                                <td>meera@example.com</td>
+                                <td>+91 54321 09876</td>
+                                <td><span class="badge-count">20</span></td>
+                                <td><strong>₹89,560</strong></td>
+                                <td>Dec 20, 2024</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="action-btn" title="View Profile" onclick="viewCustomer(5)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Send Email" onclick="emailCustomer(5)">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="customer-cell">
+                                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=40&h=40&fit=crop&crop=face" alt="">
+                                        <strong>Sneha Patel</strong>
+                                    </div>
+                                </td>
+                                <td>sneha@example.com</td>
+                                <td>+91 76543 21098</td>
+                                <td><span class="badge-count">15</span></td>
+                                <td><strong>₹67,890</strong></td>
+                                <td>Dec 22, 2024</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="action-btn" title="View Profile" onclick="viewCustomer(3)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Send Email" onclick="emailCustomer(3)">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="customer-cell">
+                                        <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=40&h=40&fit=crop&crop=face" alt="">
+                                        <strong>Priya Sharma</strong>
+                                    </div>
+                                </td>
+                                <td>priya@example.com</td>
+                                <td>+91 98765 43210</td>
+                                <td><span class="badge-count">12</span></td>
+                                <td><strong>₹45,890</strong></td>
+                                <td>Dec 24, 2024</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="action-btn" title="View Profile" onclick="viewCustomer(1)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Send Email" onclick="emailCustomer(1)">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="customer-cell">
+                                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=40&h=40&fit=crop&crop=face" alt="">
+                                        <strong>Anita Desai</strong>
+                                    </div>
+                                </td>
+                                <td>anita@example.com</td>
+                                <td>+91 87654 32109</td>
+                                <td><span class="badge-count">8</span></td>
+                                <td><strong>₹32,450</strong></td>
+                                <td>Dec 23, 2024</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="action-btn" title="View Profile" onclick="viewCustomer(2)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Send Email" onclick="emailCustomer(2)">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="customer-cell">
+                                        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?w=40&h=40&fit=crop&crop=face" alt="">
+                                        <strong>Kavya Nair</strong>
+                                    </div>
+                                </td>
+                                <td>kavya@example.com</td>
+                                <td>+91 65432 10987</td>
+                                <td><span class="badge-count">5</span></td>
+                                <td><strong>₹18,900</strong></td>
+                                <td>Dec 21, 2024</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="action-btn" title="View Profile" onclick="viewCustomer(4)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Send Email" onclick="emailCustomer(4)">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="customer-cell">
+                                        <img src="https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=40&h=40&fit=crop&crop=face" alt="">
+                                        <strong>Deepa Singh</strong>
+                                    </div>
+                                </td>
+                                <td>deepa@example.com</td>
+                                <td>+91 43210 98765</td>
+                                <td><span class="badge-count">3</span></td>
+                                <td><strong>₹12,450</strong></td>
+                                <td>Dec 20, 2024</td>
+                                <td>
+                                    <div class="action-buttons">
+                                        <button class="action-btn" title="View Profile" onclick="viewCustomer(6)">
+                                            <i class="fas fa-eye"></i>
+                                        </button>
+                                        <button class="action-btn" title="Send Email" onclick="emailCustomer(6)">
+                                            <i class="fas fa-envelope"></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Pagination -->
+            <div class="pagination">
+                <button disabled><i class="fas fa-chevron-left"></i></button>
+                <button class="active">1</button>
+                <button>2</button>
+                <button>3</button>
+                <button><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Customer Details Modal -->
+    <div class="modal-overlay" id="customerModal">
+        <div class="modal" style="max-width: 700px;">
+            <div class="modal-header">
+                <h2>Customer Profile</h2>
+                <button class="modal-close" onclick="closeModal('customerModal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="customer-profile-header">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face" alt="" id="customerAvatar">
+                    <div class="customer-profile-info">
+                        <h3 id="customerName">Priya Sharma</h3>
+                        <p id="customerEmail">priya@example.com</p>
+                        <p id="customerPhone">+91 98765 43210</p>
+                    </div>
+                </div>
+                
+                <div class="customer-stats-row">
+                    <div class="customer-stat">
+                        <span class="stat-value" id="customerOrders">12</span>
+                        <span class="stat-label">Orders</span>
+                    </div>
+                    <div class="customer-stat">
+                        <span class="stat-value" id="customerSpent">₹45,890</span>
+                        <span class="stat-label">Total Spent</span>
+                    </div>
+                    <div class="customer-stat">
+                        <span class="stat-value" id="customerAvgOrder">₹3,824</span>
+                        <span class="stat-label">Avg. Order</span>
+                    </div>
+                </div>
+                
+                <div class="customer-orders-section">
+                    <h4>Recent Orders</h4>
+                    <div class="mini-orders-list" id="customerOrdersList">
+                        <div class="mini-order">
+                            <span class="order-id">#TRV1234</span>
+                            <span class="order-date">Dec 24, 2024</span>
+                            <span class="order-amount">₹4,590</span>
+                            <span class="status-badge pending">Pending</span>
+                        </div>
+                        <div class="mini-order">
+                            <span class="order-id">#TRV1198</span>
+                            <span class="order-date">Dec 15, 2024</span>
+                            <span class="order-amount">₹2,890</span>
+                            <span class="status-badge delivered">Delivered</span>
+                        </div>
+                        <div class="mini-order">
+                            <span class="order-id">#TRV1156</span>
+                            <span class="order-date">Dec 5, 2024</span>
+                            <span class="order-amount">₹5,670</span>
+                            <span class="status-badge delivered">Delivered</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="emailCustomer()">
+                    <i class="fas fa-envelope"></i> Send Email
+                </button>
+                <button class="btn btn-primary" onclick="closeModal('customerModal')">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+    <script>
+        // Customer Functions
+        const customersData = [
+            { id: 1, name: 'Priya Sharma', email: 'priya@example.com', phone: '+91 98765 43210', orders: 12, totalSpent: 45890, lastOrder: '2024-12-24', avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=80&h=80&fit=crop&crop=face' },
+            { id: 2, name: 'Anita Desai', email: 'anita@example.com', phone: '+91 87654 32109', orders: 8, totalSpent: 32450, lastOrder: '2024-12-23', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=80&h=80&fit=crop&crop=face' },
+            { id: 3, name: 'Sneha Patel', email: 'sneha@example.com', phone: '+91 76543 21098', orders: 15, totalSpent: 67890, lastOrder: '2024-12-22', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop&crop=face' },
+            { id: 4, name: 'Kavya Nair', email: 'kavya@example.com', phone: '+91 65432 10987', orders: 5, totalSpent: 18900, lastOrder: '2024-12-21', avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=80&h=80&fit=crop&crop=face' },
+            { id: 5, name: 'Meera Reddy', email: 'meera@example.com', phone: '+91 54321 09876', orders: 20, totalSpent: 89560, lastOrder: '2024-12-20', avatar: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=80&h=80&fit=crop&crop=face' },
+            { id: 6, name: 'Deepa Singh', email: 'deepa@example.com', phone: '+91 43210 98765', orders: 3, totalSpent: 12450, lastOrder: '2024-12-20', avatar: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=80&h=80&fit=crop&crop=face' }
+        ];
+        
+        function viewCustomer(id) {
+            const customer = customersData.find(c => c.id === id);
+            if (!customer) return;
+            
+            document.getElementById('customerAvatar').src = customer.avatar;
+            document.getElementById('customerName').textContent = customer.name;
+            document.getElementById('customerEmail').textContent = customer.email;
+            document.getElementById('customerPhone').textContent = customer.phone;
+            document.getElementById('customerOrders').textContent = customer.orders;
+            document.getElementById('customerSpent').textContent = '₹' + customer.totalSpent.toLocaleString();
+            document.getElementById('customerAvgOrder').textContent = '₹' + Math.round(customer.totalSpent / customer.orders).toLocaleString();
+            
+            openModal('customerModal');
+        }
+        
+        function emailCustomer(id) {
+            const customer = customersData.find(c => c.id === id);
+            if (customer) {
+                window.location.href = 'mailto:' + customer.email;
+            }
+        }
+        
+        function exportCustomers() {
+            const headers = ['Name', 'Email', 'Phone', 'Orders', 'Total Spent', 'Last Order'];
+            const rows = customersData.map(c => [
+                c.name, c.email, c.phone, c.orders, c.totalSpent, c.lastOrder
+            ]);
+            
+            const csvContent = [headers, ...rows].map(row => row.join(',')).join('\n');
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'customers-export.csv';
+            a.click();
+            
+            URL.revokeObjectURL(url);
+            showToast('success', 'Export Complete', 'Customers have been exported to CSV.');
+        }
+        
+        // Search
+        document.getElementById('customerSearch')?.addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('#customersTable tbody tr');
+            
+            rows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.includes(query) ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
